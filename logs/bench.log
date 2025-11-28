@@ -1,0 +1,479 @@
+2025-11-10 15:57:37,218 DEBUG cd frappe-bench && python3 -m venv env
+2025-11-10 15:57:41,379 DEBUG cd frappe-bench && /home/piyush/frappe-env/frappe-bench/env/bin/python -m pip install --quiet --upgrade pip
+2025-11-10 15:57:43,391 DEBUG cd frappe-bench && /home/piyush/frappe-env/frappe-bench/env/bin/python -m pip install --quiet wheel
+2025-11-10 15:57:45,482 LOG Getting frappe
+2025-11-10 15:57:45,483 DEBUG cd frappe-bench/apps && git clone https://github.com/frappe/frappe.git --branch version-15 --depth 1 --origin upstream
+2025-11-10 15:57:57,966 LOG Installing frappe
+2025-11-10 15:57:57,969 DEBUG cd /home/piyush/frappe-env/frappe-bench && /home/piyush/frappe-env/frappe-bench/env/bin/python -m pip install --quiet --upgrade -e /home/piyush/frappe-env/frappe-bench/apps/frappe 
+2025-11-10 15:58:36,744 DEBUG cd /home/piyush/frappe-env/frappe-bench/apps/frappe && yarn install --check-files
+2025-11-10 15:59:35,726 DEBUG cd frappe-bench && bench build
+2025-11-10 15:59:35,881 INFO /home/piyush/frappe-env/env/bin/bench build
+2025-11-10 16:00:01,324 LOG setting up backups
+2025-11-10 16:00:01,364 LOG backups were set up
+2025-11-10 16:00:01,364 INFO Bench frappe-bench initialized
+2025-11-10 16:04:54,973 INFO /home/piyush/frappe-env/env/bin/bench new-site crm.localhost
+2025-11-10 16:06:24,194 INFO /home/piyush/frappe-env/env/bin/bench get-app erpnext --branch version-15
+2025-11-10 16:06:25,049 LOG Getting erpnext
+2025-11-10 16:06:25,049 DEBUG cd ./apps && git clone https://github.com/frappe/erpnext.git --branch version-15 --depth 1 --origin upstream
+2025-11-10 16:06:36,381 LOG Installing erpnext
+2025-11-10 16:06:36,381 DEBUG cd /home/piyush/frappe-env/frappe-bench && /home/piyush/frappe-env/frappe-bench/env/bin/python -m pip install --quiet --upgrade -e /home/piyush/frappe-env/frappe-bench/apps/erpnext 
+2025-11-10 16:07:02,180 DEBUG cd /home/piyush/frappe-env/frappe-bench/apps/erpnext && yarn install --check-files
+2025-11-10 16:07:06,566 DEBUG bench build --app erpnext
+2025-11-10 16:07:06,784 INFO /home/piyush/frappe-env/env/bin/bench build --app erpnext
+2025-11-10 16:07:11,337 INFO /home/piyush/frappe-env/env/bin/bench --site crm.localhost install-app erpnext
+2025-11-10 16:09:19,563 INFO /home/piyush/frappe-env/env/bin/bench get-app crm https://github.com/frappe/crm --branch version-15
+2025-11-10 16:09:19,577 LOG Getting crm
+2025-11-10 16:09:19,578 DEBUG cd ./apps && git clone https://github.com/frappe/crm --branch version-15 --depth 1 --origin upstream
+2025-11-10 16:09:20,347 WARNING cd ./apps && git clone https://github.com/frappe/crm --branch version-15 --depth 1 --origin upstream executed with exit code 128
+2025-11-10 16:09:20,348 WARNING /home/piyush/frappe-env/env/bin/bench get-app crm https://github.com/frappe/crm --branch version-15 executed with exit code 1
+2025-11-10 16:09:30,201 INFO /home/piyush/frappe-env/env/bin/bench get-app crm https://github.com/frappe/crm
+2025-11-10 16:09:30,214 LOG Getting crm
+2025-11-10 16:09:30,215 DEBUG cd ./apps && git clone https://github.com/frappe/crm  --depth 1 --origin upstream
+2025-11-10 16:09:37,854 LOG Installing crm
+2025-11-10 16:09:37,854 DEBUG cd /home/piyush/frappe-env/frappe-bench && /home/piyush/frappe-env/frappe-bench/env/bin/python -m pip install --quiet --upgrade -e /home/piyush/frappe-env/frappe-bench/apps/crm 
+2025-11-10 16:09:47,483 DEBUG cd /home/piyush/frappe-env/frappe-bench/apps/crm && yarn install --check-files
+2025-11-10 16:10:58,244 DEBUG bench build --app crm
+2025-11-10 16:10:58,397 INFO /home/piyush/frappe-env/env/bin/bench build --app crm
+2025-11-10 16:12:35,639 INFO /home/piyush/frappe-env/env/bin/bench --site crm.localhost install-app crm
+2025-11-10 16:13:02,855 INFO /home/piyush/frappe-env/env/bin/bench use crm.localhost
+2025-11-10 16:13:08,483 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-10 16:13:09,090 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-10 16:13:09,090 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8000
+2025-11-10 16:13:09,115 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-10 16:13:09,120 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-10 16:17:46,356 INFO /home/piyush/frappe-env/env/bin/bench clear-cache
+2025-11-10 16:17:48,179 INFO /home/piyush/frappe-env/env/bin/bench --site crm.localhost clear-cache
+2025-11-10 16:17:49,487 INFO /home/piyush/frappe-env/env/bin/bench restart
+2025-11-10 16:18:09,955 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-10 16:18:10,510 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-10 16:18:10,514 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8000
+2025-11-10 16:18:10,515 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-10 16:18:10,535 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-10 16:26:12,055 INFO /home/piyush/frappe-env/env/bin/bench clear-cache
+2025-11-10 16:26:13,979 INFO /home/piyush/frappe-env/env/bin/bench --site crm.localhost clear-cache
+2025-11-10 16:26:15,346 INFO /home/piyush/frappe-env/env/bin/bench restart
+2025-11-10 16:26:23,039 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-10 16:26:23,576 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-10 16:26:23,586 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8000
+2025-11-10 16:26:23,616 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-10 16:26:23,635 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-10 16:49:45,698 INFO /home/piyush/frappe-env/env/bin/bench use crm.localhost
+2025-11-10 16:49:52,591 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-10 16:49:53,266 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-10 16:49:53,271 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8000
+2025-11-10 16:49:53,296 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-10 16:49:53,306 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-11 05:07:47,280 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-11 05:07:47,638 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8000
+2025-11-11 05:07:47,652 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-11 05:07:47,652 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-11 05:07:47,667 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-11 06:00:02,155 INFO /home/piyush/frappe-env/env/bin/bench --verbose --site all backup
+2025-11-11 10:32:03,155 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-11 10:32:03,872 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-11 10:32:03,878 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-11 10:32:03,885 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8000
+2025-11-11 10:32:03,926 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-11 11:40:10,412 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-11 11:40:10,882 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-11 11:40:10,889 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-11 11:40:10,891 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8000
+2025-11-11 11:40:10,891 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-11 11:54:06,459 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-11 11:54:06,915 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8000
+2025-11-11 11:54:06,923 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-11 11:54:06,924 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-11 11:54:06,933 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-11 12:00:01,914 INFO /home/piyush/frappe-env/env/bin/bench --verbose --site all backup
+2025-11-12 05:03:59,720 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-12 05:04:00,267 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8000
+2025-11-12 05:04:00,269 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-12 05:04:00,275 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-12 05:04:00,278 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-12 05:13:32,688 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-12 05:13:33,135 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8000
+2025-11-12 05:13:33,137 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-12 05:13:33,147 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-12 05:13:33,161 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-12 06:00:02,066 INFO /home/piyush/frappe-env/env/bin/bench --verbose --site all backup
+2025-11-12 09:43:10,129 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-12 09:43:20,355 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-12 09:43:30,706 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-12 09:44:59,574 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-12 09:48:32,419 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-12 09:48:32,994 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8000
+2025-11-12 09:48:32,998 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-12 09:48:33,003 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-12 09:48:33,009 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-12 09:52:01,993 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-12 09:52:02,520 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8000
+2025-11-12 09:52:02,532 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-12 09:52:02,561 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-12 09:52:02,565 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-12 09:54:07,254 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-12 09:54:07,688 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8000
+2025-11-12 09:54:07,692 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-12 09:54:07,695 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-12 09:54:07,709 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-12 09:56:39,829 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-12 09:56:40,355 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-12 09:56:40,364 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8000
+2025-11-12 09:56:40,368 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-12 09:56:40,377 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-12 09:57:59,646 INFO /home/piyush/frappe-env/env/bin/bench start --no-reload
+2025-11-12 09:57:59,659 WARNING /home/piyush/frappe-env/env/bin/bench start --no-reload executed with exit code 2
+2025-11-12 09:58:59,882 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-12 09:59:00,314 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-12 09:59:00,314 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-12 09:59:00,316 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-12 09:59:00,316 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8000
+2025-11-12 10:00:38,512 INFO /home/piyush/frappe-env/env/bin/bench start --port 8080 --no-reload
+2025-11-12 10:00:38,519 WARNING /home/piyush/frappe-env/env/bin/bench start --port 8080 --no-reload executed with exit code 2
+2025-11-12 10:05:18,423 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-12 10:05:18,847 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8000 --noreload
+2025-11-12 10:05:18,856 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-12 10:05:18,866 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-12 10:05:18,866 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-12 10:10:55,118 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-12 10:10:55,570 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-12 10:10:55,572 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080 --noreload
+2025-11-12 10:10:55,587 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-12 10:10:55,590 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-12 10:13:48,016 INFO /home/piyush/frappe-env/env/bin/bench restart
+2025-11-12 10:13:56,074 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-12 10:13:56,531 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-12 10:13:56,532 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080 --noreload
+2025-11-12 10:13:56,547 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-12 10:13:56,547 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-12 10:15:18,967 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-12 10:15:19,415 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-12 10:15:19,422 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-12 10:15:19,425 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-12 10:15:19,436 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-12 10:15:29,418 INFO /home/piyush/frappe-env/env/bin/bench restart
+2025-11-12 10:15:32,538 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-12 10:15:33,045 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-12 10:15:33,048 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-12 10:15:33,049 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-12 10:15:33,057 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-12 10:17:06,216 INFO /home/piyush/frappe-env/env/bin/bench restart
+2025-11-12 10:17:09,320 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-12 10:17:09,780 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-12 10:17:09,780 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8000
+2025-11-12 10:17:09,783 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-12 10:17:09,793 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-12 10:19:38,927 INFO /home/piyush/frappe-env/env/bin/bench restart
+2025-11-12 10:19:57,678 INFO /home/piyush/frappe-env/env/bin/bench use crm.locahost
+2025-11-12 10:21:01,066 INFO /home/piyush/frappe-env/env/bin/bench use crm.localhost
+2025-11-12 10:21:12,802 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-12 10:21:13,199 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-12 10:21:13,212 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-12 10:21:13,217 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-12 10:21:13,218 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-12 10:24:42,244 INFO /home/piyush/frappe-env/env/bin/bench restart
+2025-11-12 10:24:46,816 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-12 10:24:47,234 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-12 10:24:47,236 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-12 10:24:47,236 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-12 10:24:47,243 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-12 10:25:12,133 INFO /home/piyush/frappe-env/env/bin/bench use crm.localhost
+2025-11-12 10:25:23,987 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-12 10:25:24,391 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-12 10:25:24,392 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-12 10:25:24,400 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-12 10:25:24,408 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-12 10:30:03,326 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-12 10:30:03,765 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-12 10:30:03,766 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-12 10:30:03,767 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-12 10:30:03,774 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-12 10:33:50,657 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-12 10:33:51,037 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-12 10:33:51,063 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-12 10:33:51,069 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-12 10:33:51,089 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-13 06:00:02,136 INFO /home/piyush/frappe-env/env/bin/bench --verbose --site all backup
+2025-11-13 12:00:01,913 INFO /home/piyush/frappe-env/env/bin/bench --verbose --site all backup
+2025-11-13 12:10:36,616 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-13 12:10:37,057 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-13 12:10:37,063 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-13 12:10:37,069 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-13 12:10:37,091 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-13 18:00:01,736 INFO /home/piyush/frappe-env/env/bin/bench --verbose --site all backup
+2025-11-14 05:22:00,284 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-14 05:22:00,764 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-14 05:22:00,765 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-14 05:22:00,774 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-14 05:22:00,777 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-14 06:00:01,457 INFO /home/piyush/frappe-env/env/bin/bench --verbose --site all backup
+2025-11-14 08:28:25,144 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-14 08:28:25,578 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-14 08:28:25,586 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-14 08:28:25,592 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-14 08:28:25,596 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-14 08:35:32,114 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-14 08:35:32,470 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-14 08:35:32,480 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-14 08:35:32,480 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-14 08:35:32,485 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-14 10:22:31,792 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-14 10:22:32,486 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-14 10:22:32,488 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-14 10:22:32,490 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-14 10:22:32,515 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-14 12:00:00,434 INFO /home/piyush/frappe-env/env/bin/bench --verbose --site all backup
+2025-11-15 05:05:22,345 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-15 05:05:23,213 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-15 05:05:23,216 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-15 05:05:23,230 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-15 05:05:23,233 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-15 06:00:00,963 INFO /home/piyush/frappe-env/env/bin/bench --verbose --site all backup
+2025-11-17 09:33:44,338 INFO /home/piyush/frappe-env/env/bin/bench clear-cache
+2025-11-17 09:33:51,258 INFO /home/piyush/frappe-env/env/bin/bench build
+2025-11-17 09:48:48,218 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-17 09:48:48,672 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-17 09:48:48,677 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-17 09:48:48,679 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-17 09:48:48,688 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-17 09:51:46,897 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-17 09:51:47,308 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-17 09:51:47,310 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-17 09:51:47,311 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-17 09:51:47,314 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-17 09:54:28,961 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-17 09:54:29,402 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-17 09:54:29,407 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-17 09:54:29,409 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-17 09:54:29,432 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-17 09:58:58,559 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-17 09:58:58,945 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-17 09:58:58,952 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-17 09:58:58,963 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-17 09:58:58,963 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-17 10:08:48,922 INFO /home/piyush/frappe-env/env/bin/bench clear-cache
+2025-11-17 10:08:54,851 INFO /home/piyush/frappe-env/env/bin/bench build
+2025-11-17 10:11:06,458 INFO /home/piyush/frappe-env/env/bin/bench restart
+2025-11-17 10:11:12,387 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-17 10:11:12,800 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-17 10:11:12,802 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-17 10:11:12,805 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-17 10:11:12,812 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-17 10:13:02,135 INFO /home/piyush/frappe-env/env/bin/bench version
+2025-11-17 10:25:38,962 INFO /home/piyush/frappe-env/env/bin/bench --site crm.localhost clear-cache
+2025-11-17 10:25:46,215 INFO /home/piyush/frappe-env/env/bin/bench build
+2025-11-17 10:27:47,688 INFO /home/piyush/frappe-env/env/bin/bench restart
+2025-11-17 10:28:42,681 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-17 10:28:43,065 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-17 10:28:43,078 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-17 10:28:43,080 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-17 10:28:43,096 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-17 11:43:57,107 INFO /home/piyush/frappe-env/env/bin/bench --site yoursite clear-cache
+2025-11-17 11:45:17,715 INFO /home/piyush/frappe-env/env/bin/bench --site all info
+2025-11-17 11:45:50,646 INFO /home/piyush/frappe-env/env/bin/bench --site crm.localhost clear-cache
+2025-11-17 11:46:18,785 INFO /home/piyush/frappe-env/env/bin/bench restart
+2025-11-17 11:46:33,184 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-17 11:46:33,574 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-17 11:46:33,575 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-17 11:46:33,580 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-17 11:46:33,585 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-17 11:48:09,598 INFO /home/piyush/frappe-env/env/bin/bench ls-apps
+2025-11-17 11:49:44,057 INFO /home/piyush/frappe-env/env/bin/bench --site all list-sites
+2025-11-17 12:00:01,913 INFO /home/piyush/frappe-env/env/bin/bench --verbose --site all backup
+2025-11-17 12:06:31,962 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-17 12:06:32,361 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-17 12:06:32,362 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-17 12:06:32,363 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-17 12:06:32,386 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-18 06:00:02,698 INFO /home/piyush/frappe-env/env/bin/bench --verbose --site all backup
+2025-11-18 06:49:08,342 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-18 06:49:08,742 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-18 06:49:08,745 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-18 06:49:08,750 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-18 06:49:08,753 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-18 08:59:55,984 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-18 08:59:56,331 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-18 08:59:56,342 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-18 08:59:56,348 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-18 08:59:56,366 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-18 12:00:01,852 INFO /home/piyush/frappe-env/env/bin/bench --verbose --site all backup
+2025-11-19 05:00:49,895 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-19 05:00:50,254 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-19 05:00:50,260 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-19 05:00:50,262 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-19 05:00:50,263 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-19 05:03:19,322 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-19 05:03:20,166 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-19 05:03:20,178 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-19 05:03:20,327 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-19 05:03:20,386 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-19 05:06:00,144 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-19 05:06:08,067 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-19 05:07:11,076 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-19 05:07:25,691 INFO /home/piyush/frappe-env/env/bin/bench restart
+2025-11-19 05:07:29,565 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-19 05:15:03,406 INFO /home/piyush/frappe-env/env/bin/bench restart
+2025-11-19 05:15:09,659 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-19 05:15:10,019 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-19 05:15:10,024 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-19 05:15:10,028 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-19 05:15:10,031 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-19 06:00:01,970 INFO /home/piyush/frappe-env/env/bin/bench --verbose --site all backup
+2025-11-19 12:00:01,780 INFO /home/piyush/frappe-env/env/bin/bench --verbose --site all backup
+2025-11-19 18:00:02,038 INFO /home/piyush/frappe-env/env/bin/bench --verbose --site all backup
+2025-11-20 05:43:55,143 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-20 05:44:00,167 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-20 05:53:57,320 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-20 05:54:22,490 INFO /home/piyush/frappe-env/env/bin/bench restart
+2025-11-20 05:58:49,360 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-20 05:58:49,811 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-20 05:58:49,816 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-20 05:58:49,817 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-20 05:58:49,823 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-20 06:00:02,279 INFO /home/piyush/frappe-env/env/bin/bench --verbose --site all backup
+2025-11-20 06:00:28,898 INFO /home/piyush/frappe-env/env/bin/bench --site crm.localhost doctor
+2025-11-20 06:02:37,496 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-20 06:02:38,117 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-20 06:02:38,133 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-20 06:02:38,138 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-20 06:02:38,142 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-20 06:08:28,467 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-20 06:08:29,192 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-20 06:08:29,193 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-20 06:08:29,198 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-20 06:08:29,199 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-20 08:47:50,123 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-20 08:47:50,806 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-20 08:47:50,813 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-20 08:47:50,813 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-20 08:47:50,815 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-20 08:48:19,489 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-20 08:48:20,237 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-20 08:48:20,242 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-20 08:48:20,247 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-20 08:48:20,257 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-20 08:54:46,943 INFO /home/piyush/frappe-env/env/bin/bench restart
+2025-11-20 08:54:57,965 INFO /home/piyush/frappe-env/env/bin/bench clear-cache
+2025-11-20 08:55:04,507 INFO /home/piyush/frappe-env/env/bin/bench build
+2025-11-20 08:57:41,590 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-20 08:57:42,194 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-20 08:57:42,201 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-20 08:57:42,217 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-20 08:57:42,221 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-20 09:28:03,982 INFO /home/piyush/frappe-env/env/bin/bench startbench start
+2025-11-20 09:28:17,894 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-20 09:28:18,481 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-20 09:28:18,489 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-20 09:28:18,494 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-20 09:28:18,508 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-20 10:04:30,942 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-20 10:04:31,550 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-20 10:04:31,559 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-20 10:04:31,569 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-20 10:04:31,575 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-20 10:12:19,837 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-20 10:12:20,293 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-20 10:12:20,304 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-20 10:12:20,309 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-20 10:12:20,310 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-20 10:16:40,514 INFO /home/piyush/frappe-env/env/bin/bench restart
+2025-11-20 10:16:43,630 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-20 10:16:44,283 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-20 10:16:44,299 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-20 10:16:44,300 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-20 10:16:44,323 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-20 10:17:16,782 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-20 10:17:29,679 INFO /home/piyush/frappe-env/env/bin/bench restart
+2025-11-20 10:17:31,554 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-20 10:18:51,445 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-20 10:19:23,662 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-20 10:22:26,696 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-20 10:22:27,333 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-20 10:22:27,336 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-20 10:22:27,337 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-20 10:22:27,337 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-20 10:25:14,800 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-20 10:25:15,365 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-20 10:25:15,371 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-20 10:25:15,373 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-20 10:25:15,379 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-20 12:00:01,804 INFO /home/piyush/frappe-env/env/bin/bench --verbose --site all backup
+2025-11-21 06:00:01,068 INFO /home/piyush/frappe-env/env/bin/bench --verbose --site all backup
+2025-11-21 12:00:01,530 INFO /home/piyush/frappe-env/env/bin/bench --verbose --site all backup
+2025-11-21 12:40:20,823 INFO /home/piyush/frappe-env/env/bin/bench clear-cache
+2025-11-21 12:40:36,915 INFO /home/piyush/frappe-env/env/bin/bench restart
+2025-11-21 12:40:53,746 INFO /home/piyush/frappe-env/env/bin/bench build
+2025-11-21 12:43:16,265 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-21 12:43:16,717 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-21 12:43:16,719 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-21 12:43:16,725 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-21 12:43:16,745 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-21 18:00:02,280 INFO /home/piyush/frappe-env/env/bin/bench --verbose --site all backup
+2025-11-22 06:00:02,090 INFO /home/piyush/frappe-env/env/bin/bench --verbose --site all backup
+2025-11-22 12:00:01,858 INFO /home/piyush/frappe-env/env/bin/bench --verbose --site all backup
+2025-11-24 05:12:59,558 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-24 05:13:00,239 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-24 05:13:00,239 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-24 05:13:00,246 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-24 05:13:00,249 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-24 06:00:02,354 INFO /home/piyush/frappe-env/env/bin/bench --verbose --site all backup
+2025-11-24 12:00:01,625 INFO /home/piyush/frappe-env/env/bin/bench --verbose --site all backup
+2025-11-25 06:00:00,370 INFO /home/piyush/frappe-env/env/bin/bench --verbose --site all backup
+2025-11-25 12:00:01,494 INFO /home/piyush/frappe-env/env/bin/bench --verbose --site all backup
+2025-11-26 05:36:03,581 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-26 05:36:04,042 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-26 05:36:04,045 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-26 05:36:04,048 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-26 05:36:04,050 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-26 06:00:01,420 INFO /home/piyush/frappe-env/env/bin/bench --verbose --site all backup
+2025-11-26 12:00:01,949 INFO /home/piyush/frappe-env/env/bin/bench --verbose --site all backup
+2025-11-27 05:05:09,550 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-27 05:05:10,039 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-27 05:05:10,046 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-27 05:05:10,050 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-27 05:05:10,055 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-27 06:00:00,718 INFO /home/piyush/frappe-env/env/bin/bench --verbose --site all backup
+2025-11-27 08:25:21,868 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-27 08:25:22,786 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-27 08:25:22,806 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-27 08:25:22,812 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-27 08:25:22,812 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-27 10:39:48,859 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-27 10:39:49,325 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-27 10:39:49,328 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-27 10:39:49,334 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-27 10:39:49,341 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-27 11:40:01,944 INFO /home/piyush/frappe-env/env/bin/bench restart
+2025-11-27 11:40:04,976 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-27 11:40:06,056 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-27 11:40:06,095 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-27 11:40:06,102 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-27 11:40:06,106 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-27 12:00:01,524 INFO /home/piyush/frappe-env/env/bin/bench --verbose --site all backup
+2025-11-28 04:49:53,493 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-28 04:49:53,856 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-28 04:49:53,860 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-28 04:49:53,863 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-28 04:49:53,878 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-28 06:00:02,170 INFO /home/piyush/frappe-env/env/bin/bench --verbose --site all backup
+2025-11-28 06:17:38,298 INFO /home/piyush/frappe-env/env/bin/bench restart
+2025-11-28 06:17:41,215 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-28 06:17:41,693 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-28 06:17:41,694 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-28 06:17:41,695 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-28 06:17:41,697 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-28 06:20:34,498 INFO /home/piyush/frappe-env/env/bin/bench --site clear-cache
+2025-11-28 06:21:34,602 INFO /home/piyush/frappe-env/env/bin/bench site list
+2025-11-28 06:25:30,590 INFO /home/piyush/frappe-env/env/bin/bench clear-cache
+2025-11-28 06:25:47,312 INFO /home/piyush/frappe-env/env/bin/bench clear-website-cache
+2025-11-28 06:25:53,637 INFO /home/piyush/frappe-env/env/bin/bench restart
+2025-11-28 06:26:01,700 INFO /home/piyush/frappe-env/env/bin/bench build
+2025-11-28 06:27:48,977 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-28 06:27:49,411 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-28 06:27:49,420 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-28 06:27:49,421 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-28 06:27:49,427 INFO /home/piyush/frappe-env/env/bin/bench worker
+2025-11-28 06:45:54,809 INFO /home/piyush/frappe-env/env/bin/bench start
+2025-11-28 06:45:55,142 INFO /home/piyush/frappe-env/env/bin/bench schedule
+2025-11-28 06:45:55,144 INFO /home/piyush/frappe-env/env/bin/bench serve --port 8080
+2025-11-28 06:45:55,148 INFO /home/piyush/frappe-env/env/bin/bench watch
+2025-11-28 06:45:55,162 INFO /home/piyush/frappe-env/env/bin/bench worker

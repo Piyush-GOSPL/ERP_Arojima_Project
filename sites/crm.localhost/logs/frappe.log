@@ -1,0 +1,9 @@
+2025-11-10 16:14:40,536 ERROR frappe New Exception collected in error log
+Site: crm.localhost
+Form Dict: {'args': '{"currency":"INR","country":"India","timezone":"Asia/Kolkata","language":"English","full_name":"Piyush Rai","email":"piyush.grandortus@gmail.com","password":"Piyush@9955","company_name":"Arojima Food Pvt Ltd","company_abbr":"AFPL","chart_of_accounts":"India - Chart of Accounts","fy_start_date":"2025-04-01","fy_end_date":"2026-03-31","setup_demo":1}', 'cmd': 'frappe.desk.page.setup_wizard.setup_wizard.setup_complete'}
+2025-11-10 16:19:01,962 ERROR frappe New Exception collected in error log
+Site: crm.localhost
+Form Dict: {'args': '{"currency":"INR","country":"India","timezone":"Asia/Kolkata","language":"English","full_name":"Piyush Rai","email":"piyush.grandortus@gmail.com","password":"Piyush@9955","company_name":"Arojima Food Private Limited","company_abbr":"AFPL","chart_of_accounts":"India - Chart of Accounts","fy_start_date":"2025-04-01","fy_end_date":"2026-03-31","setup_demo":1}', 'cmd': 'frappe.desk.page.setup_wizard.setup_wizard.setup_complete'}
+2025-11-27 06:46:41,793 ERROR frappe New Exception collected in error log
+Site: crm.localhost
+Form Dict: {'user': 'akanksha@grandortus.com', 'cmd': 'frappe.core.doctype.user.user.reset_password'}
