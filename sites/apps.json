@@ -21,7 +21,7 @@
     "crm": {
         "is_repo": true,
         "resolution": {
-            "commit_hash": "a7c575fe0f956f0ba1959185493d36e7f2bd8641",
+            "commit_hash": "25a31a97df457ebd65cfbbe8cccb00316391d5bc",
             "branch": "develop"
         },
         "required": [],

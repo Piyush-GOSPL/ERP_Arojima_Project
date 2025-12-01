@@ -184,3 +184,321 @@ Backup Summary for crm.localhost at 2025-11-28 11:30:06.431550
 Config  : ./crm.localhost/private/backups/20251128_113003-crm_localhost-site_config_backup.json 94.0B
 Database: ./crm.localhost/private/backups/20251128_113003-crm_localhost-database.sql.gz         993.8KiB
 Backup for Site crm.localhost has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=_04d60aa677a7cd37 --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false _04d60aa677a7cd37 | /usr/bin/gzip >> ./crm.localhost/private/backups/20251201_113002-crm_localhost-database.sql.gz
+
+Backup Summary for crm.localhost at 2025-12-01 11:30:05.806111
+Config  : /home/piyush/frappe-env/frappe-bench/sites/crm.localhost/private/backups/20251201_113002-crm_localhost-site_config_backup.json 98.0B
+Database: /home/piyush/frappe-env/frappe-bench/sites/crm.localhost/private/backups/20251201_113002-crm_localhost-database.sql.gz 1.0MiB
+Backup for Site crm.localhost has been successfully completed
+Backup failed for Site newsite.local. Database or site_config.json may be corrupted
+Traceback with variables (most recent call last):
+  File "apps/frappe/frappe/commands/site.py", line 867, in backup
+    odb = scheduled_backup(
+      context = CliCtxObj(force=False, profile=False, sites=['crm.localhost', 'newsite.local', 'site1.local'], verbose=True)
+      with_files = False
+      backup_path = None
+      backup_path_db = None
+      backup_path_files = None
+      backup_path_private_files = None
+      backup_path_conf = None
+      ignore_backup_conf = False
+      verbose = True
+      compress = False
+      include = ''
+      exclude = ''
+      old_backup_metadata = False
+      scheduled_backup = <function scheduled_backup at 0x7fdad5f60720>
+      exit_code = 0
+      rollback_callback = None
+      site = 'newsite.local'
+      odb = frappe.utils.backups.BackupGenerator(backup_excludes=[], backup_includes=[], backup_path=None, backup_path_conf='./crm.localhost/private/backups/20251201_113002-crm_localhost-site_config_backup.json', backup_path_db='./crm.localhost/private/backups/20251201_113002-crm_localhost-database.sql.gz', backup_path_files='./crm.localhost/private/backups/20251201_113002-crm_localhost-files.tar', backup_path_private_files='./crm.localhost/private/backups/20251201_113002-crm_localhost-private-files.tar', compress_files=False, db_host='127.0.0.1', db_name='_04d60aa677a7cd37', db_port=3306, db_socket=None, db_type='mariadb', exclude_doctypes='', ignore_conf=False, include_doctypes='', old_backup_metadata=False, partial=[], password='zPSqrMxU8EMyig0d', rollback_callback=frappe.utils.CallbackManager(-), site_slug='crm_localhost', todays_date='20251201_113002', user='_04d60aa677a7cd37', verbose=True)
+  File "apps/frappe/frappe/utils/backups.py", line 589, in scheduled_backup
+    return new_backup(
+      older_than = 6
+      ignore_files = True
+      backup_path = None
+      backup_path_db = None
+      backup_path_files = None
+      backup_path_private_files = None
+      backup_path_conf = None
+      ignore_conf = False
+      include_doctypes = ''
+      exclude_doctypes = ''
+      compress = False
+      force = True
+      verbose = True
+      old_backup_metadata = False
+      rollback_callback = frappe.utils.CallbackManager()
+  File "apps/frappe/frappe/utils/backups.py", line 626, in new_backup
+    odb = BackupGenerator(
+      older_than = 6
+      ignore_files = True
+      backup_path = None
+      backup_path_db = None
+      backup_path_files = None
+      backup_path_private_files = None
+      backup_path_conf = None
+      ignore_conf = False
+      include_doctypes = ''
+      exclude_doctypes = ''
+      compress = False
+      force = True
+      verbose = True
+      old_backup_metadata = False
+      rollback_callback = frappe.utils.CallbackManager()
+  File "apps/frappe/frappe/utils/backups.py", line 89, in __init__
+    self.setup_backup_tables()
+      self = frappe.utils.backups.BackupGenerator(backup_path=None, backup_path_conf=None, backup_path_db=None, backup_path_files=None, backup_path_private_files=None, compress_files=False, db_host='127.0.0.1', db_name='_043458f75035292b', db_port=3306, db_socket=None, db_type='mariadb', exclude_doctypes='', ignore_conf=False, include_doctypes='', old_backup_metadata=False, partial=False, password='eSNoS3F41d3NmOtb', rollback_callback=frappe.utils.CallbackManager(-), site_slug='newsite_local', user='_043458f75035292b', verbose=True)
+      db_name = '_043458f75035292b'
+      user = '_043458f75035292b'
+      password = ********
+      backup_path = None
+      backup_path_db = None
+      backup_path_files = None
+      backup_path_private_files = None
+      db_socket = None
+      db_host = '127.0.0.1'
+      db_port = 3306
+      db_type = 'mariadb'
+      backup_path_conf = None
+      ignore_conf = False
+      compress_files = False
+      include_doctypes = ''
+      exclude_doctypes = ''
+      verbose = True
+      old_backup_metadata = False
+      rollback_callback = frappe.utils.CallbackManager()
+      site = 'newsite.local'
+  File "apps/frappe/frappe/utils/backups.py", line 126, in setup_backup_tables
+    self._set_existing_tables()
+      self = frappe.utils.backups.BackupGenerator(backup_path=None, backup_path_conf=None, backup_path_db=None, backup_path_files=None, backup_path_private_files=None, compress_files=False, db_host='127.0.0.1', db_name='_043458f75035292b', db_port=3306, db_socket=None, db_type='mariadb', exclude_doctypes='', ignore_conf=False, include_doctypes='', old_backup_metadata=False, partial=False, password='eSNoS3F41d3NmOtb', rollback_callback=frappe.utils.CallbackManager(-), site_slug='newsite_local', user='_043458f75035292b', verbose=True)
+  File "apps/frappe/frappe/utils/backups.py", line 122, in _set_existing_tables
+    self._existing_tables = frappe.db.get_tables()
+      self = frappe.utils.backups.BackupGenerator(backup_path=None, backup_path_conf=None, backup_path_db=None, backup_path_files=None, backup_path_private_files=None, compress_files=False, db_host='127.0.0.1', db_name='_043458f75035292b', db_port=3306, db_socket=None, db_type='mariadb', exclude_doctypes='', ignore_conf=False, include_doctypes='', old_backup_metadata=False, partial=False, password='eSNoS3F41d3NmOtb', rollback_callback=frappe.utils.CallbackManager(-), site_slug='newsite_local', user='_043458f75035292b', verbose=True)
+  File "apps/frappe/frappe/database/mariadb/mysqlclient.py", line 519, in get_tables
+    .run(pluck=True)
+      self = frappe.database.mariadb.mysqlclient.MariaDBDatabase(after_commit=frappe.utils.CallbackManager(-), after_rollback=frappe.utils.CallbackManager(-), auto_commit_on_many_writes=0, before_commit=frappe.utils.CallbackManager(-), before_rollback=frappe.utils.CallbackManager(-), cur_db_name='_043458f75035292b', db_type='mariadb', host='127.0.0.1', logger=<Logger database-newsite.local (WARNING)>, password='eSNoS3F41d3NmOtb', port=3306, socket=None, transaction_writes=0, type_map={'Currency': ('decimal', '21,9'), 'Int': ('int', '11'), 'Long Int': ('bigint', '20'), 'Float': ('decimal', '21,9'), 'Percent': ('decimal', '21,9'), 'Check': ('tinyint', '4'), 'Small Text': ('text', ''), 'Long Text': ('lon...'), 'Color': ('varchar', 140), 'Barcode': ('longtext', ''), 'Geolocation': ('longtext', ''), 'Duration': ('decimal', '21,9'), 'Icon': ('varchar', 140), 'Phone': ('varchar', 140), 'Autocomplete': ('varchar', 140), 'JSON': ('json', '')}, user='_043458f75035292b', value_cache=collections.defaultdict{})
+      cached = True
+      to_query = True
+      tables = None
+      information_schema = pypika.queries.Schema()
+  File "apps/frappe/frappe/query_builder/utils.py", line 85, in execute_query
+    result = frappe.local.db.sql(query, params, *args, **kwargs)  # nosemgrep
+      query = 'SELECT `table_name` FROM `information_schema`.`tables` WHERE `table_schema`=%(param1)s'
+      args = ()
+      kwargs = {'pluck': True}
+      child_queries = "_child_queries"
+      params = {'param1': '_043458f75035292b'}
+  File "apps/frappe/frappe/database/database.py", line 249, in sql
+    self.connect()
+      self = frappe.database.mariadb.mysqlclient.MariaDBDatabase(after_commit=frappe.utils.CallbackManager(-), after_rollback=frappe.utils.CallbackManager(-), auto_commit_on_many_writes=0, before_commit=frappe.utils.CallbackManager(-), before_rollback=frappe.utils.CallbackManager(-), cur_db_name='_043458f75035292b', db_type='mariadb', host='127.0.0.1', logger=<Logger database-newsite.local (WARNING)>, password='eSNoS3F41d3NmOtb', port=3306, socket=None, transaction_writes=0, type_map={'Currency': ('decimal', '21,9'), 'Int': ('int', '11'), 'Long Int': ('bigint', '20'), 'Float': ('decimal', '21,9'), 'Percent': ('decimal', '21,9'), 'Check': ('tinyint', '4'), 'Small Text': ('text', ''), 'Long Text': ('lon...'), 'Color': ('varchar', 140), 'Barcode': ('longtext', ''), 'Geolocation': ('longtext', ''), 'Duration': ('decimal', '21,9'), 'Icon': ('varchar', 140), 'Phone': ('varchar', 140), 'Autocomplete': ('varchar', 140), 'JSON': ('json', '')}, user='_043458f75035292b', value_cache=collections.defaultdict{})
+      query = 'SELECT `table_name` FROM `information_schema`.`tables` WHERE `table_schema`=%(param1)s'
+      values = {'param1': '_043458f75035292b'}
+      as_dict = 0
+      as_list = 0
+      debug = False
+      ignore_ddl = 0
+      auto_commit = 0
+      update = None
+      explain = False
+      run = True
+      pluck = True
+      as_iterator = False
+      query_type = 'select'
+  File "apps/frappe/frappe/database/database.py", line 147, in connect
+    self.get_connection()
+      self = frappe.database.mariadb.mysqlclient.MariaDBDatabase(after_commit=frappe.utils.CallbackManager(-), after_rollback=frappe.utils.CallbackManager(-), auto_commit_on_many_writes=0, before_commit=frappe.utils.CallbackManager(-), before_rollback=frappe.utils.CallbackManager(-), cur_db_name='_043458f75035292b', db_type='mariadb', host='127.0.0.1', logger=<Logger database-newsite.local (WARNING)>, password='eSNoS3F41d3NmOtb', port=3306, socket=None, transaction_writes=0, type_map={'Currency': ('decimal', '21,9'), 'Int': ('int', '11'), 'Long Int': ('bigint', '20'), 'Float': ('decimal', '21,9'), 'Percent': ('decimal', '21,9'), 'Check': ('tinyint', '4'), 'Small Text': ('text', ''), 'Long Text': ('lon...'), 'Color': ('varchar', 140), 'Barcode': ('longtext', ''), 'Geolocation': ('longtext', ''), 'Duration': ('decimal', '21,9'), 'Icon': ('varchar', 140), 'Phone': ('varchar', 140), 'Autocomplete': ('varchar', 140), 'JSON': ('json', '')}, user='_043458f75035292b', value_cache=collections.defaultdict{})
+  File "apps/frappe/frappe/database/mariadb/mysqlclient.py", line 109, in get_connection
+    conn = self._get_connection()
+      self = frappe.database.mariadb.mysqlclient.MariaDBDatabase(after_commit=frappe.utils.CallbackManager(-), after_rollback=frappe.utils.CallbackManager(-), auto_commit_on_many_writes=0, before_commit=frappe.utils.CallbackManager(-), before_rollback=frappe.utils.CallbackManager(-), cur_db_name='_043458f75035292b', db_type='mariadb', host='127.0.0.1', logger=<Logger database-newsite.local (WARNING)>, password='eSNoS3F41d3NmOtb', port=3306, socket=None, transaction_writes=0, type_map={'Currency': ('decimal', '21,9'), 'Int': ('int', '11'), 'Long Int': ('bigint', '20'), 'Float': ('decimal', '21,9'), 'Percent': ('decimal', '21,9'), 'Check': ('tinyint', '4'), 'Small Text': ('text', ''), 'Long Text': ('lon...'), 'Color': ('varchar', 140), 'Barcode': ('longtext', ''), 'Geolocation': ('longtext', ''), 'Duration': ('decimal', '21,9'), 'Icon': ('varchar', 140), 'Phone': ('varchar', 140), 'Autocomplete': ('varchar', 140), 'JSON': ('json', '')}, user='_043458f75035292b', value_cache=collections.defaultdict{})
+  File "apps/frappe/frappe/database/mariadb/mysqlclient.py", line 114, in _get_connection
+    return self.create_connection()
+      self = frappe.database.mariadb.mysqlclient.MariaDBDatabase(after_commit=frappe.utils.CallbackManager(-), after_rollback=frappe.utils.CallbackManager(-), auto_commit_on_many_writes=0, before_commit=frappe.utils.CallbackManager(-), before_rollback=frappe.utils.CallbackManager(-), cur_db_name='_043458f75035292b', db_type='mariadb', host='127.0.0.1', logger=<Logger database-newsite.local (WARNING)>, password='eSNoS3F41d3NmOtb', port=3306, socket=None, transaction_writes=0, type_map={'Currency': ('decimal', '21,9'), 'Int': ('int', '11'), 'Long Int': ('bigint', '20'), 'Float': ('decimal', '21,9'), 'Percent': ('decimal', '21,9'), 'Check': ('tinyint', '4'), 'Small Text': ('text', ''), 'Long Text': ('lon...'), 'Color': ('varchar', 140), 'Barcode': ('longtext', ''), 'Geolocation': ('longtext', ''), 'Duration': ('decimal', '21,9'), 'Icon': ('varchar', 140), 'Phone': ('varchar', 140), 'Autocomplete': ('varchar', 140), 'JSON': ('json', '')}, user='_043458f75035292b', value_cache=collections.defaultdict{})
+  File "apps/frappe/frappe/database/mariadb/mysqlclient.py", line 117, in create_connection
+    return MySQLdb.connect(**self.get_connection_settings())
+      self = frappe.database.mariadb.mysqlclient.MariaDBDatabase(after_commit=frappe.utils.CallbackManager(-), after_rollback=frappe.utils.CallbackManager(-), auto_commit_on_many_writes=0, before_commit=frappe.utils.CallbackManager(-), before_rollback=frappe.utils.CallbackManager(-), cur_db_name='_043458f75035292b', db_type='mariadb', host='127.0.0.1', logger=<Logger database-newsite.local (WARNING)>, password='eSNoS3F41d3NmOtb', port=3306, socket=None, transaction_writes=0, type_map={'Currency': ('decimal', '21,9'), 'Int': ('int', '11'), 'Long Int': ('bigint', '20'), 'Float': ('decimal', '21,9'), 'Percent': ('decimal', '21,9'), 'Check': ('tinyint', '4'), 'Small Text': ('text', ''), 'Long Text': ('lon...'), 'Color': ('varchar', 140), 'Barcode': ('longtext', ''), 'Geolocation': ('longtext', ''), 'Duration': ('decimal', '21,9'), 'Icon': ('varchar', 140), 'Phone': ('varchar', 140), 'Autocomplete': ('varchar', 140), 'JSON': ('json', '')}, user='_043458f75035292b', value_cache=collections.defaultdict{})
+  File "env/lib/python3.12/site-packages/MySQLdb/__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+      args = ()
+      kwargs = {'user': '_043458f75035292b', 'conv': {<class 'int'>: <function Thing2Str at 0x7fdad539ee80>, <class 'float'>: <function Float2Str at 0x7fdad539ef20>, <class 'NoneType'>: <function None2NULL at 0x7fdad539efc0>, <class 'array.array'>: <function array2Str at 0x7fdad539f1a0>, <class 'bool'>: <function Bool2Str at 0x7fdad539ed40>, <class 'datetime.date'>: <function Thing2Literal at 0x7fdad539f060>, <class 'datetime.datetime'>: <function DateTime2literal at 0x7fdad539e7a0>, <class 'datetime.timedelta'>: <function escape_timedelta at 0x7fdad539ff60>, <class 'set'>: <function Set2Str at 0x7fdad539ede0>, <class 'decimal.Decimal'>: <function Decimal2Literal at 0x7fdad539f100>, 1: <class 'int'>, 2: <c...<class 'bytes'>, 245: <class 'bytes'>, <class 'dict'>: <function escape_dict at 0x7fdad53d0040>, <class 'frozenset'>: <function escape_frozenset at 0x7fdad539d620>}, 'charset': 'utf8mb4', 'use_unicode': True, 'database': '_043458f75035292b', 'host': '127.0.0.1', 'port': 3306, 'password': '********'}
+      Connection = MySQLdb.connections.Connection
+  File "env/lib/python3.12/site-packages/MySQLdb/connections.py", line 200, in __init__
+    super().__init__(*args, **kwargs2)
+      self = <_mysql.connection open to '(null)' at 0x2e863870>
+      args = ()
+      kwargs = {'user': '_043458f75035292b', 'conv': {<class 'int'>: <function Thing2Str at 0x7fdad539ee80>, <class 'float'>: <function Float2Str at 0x7fdad539ef20>, <class 'NoneType'>: <function None2NULL at 0x7fdad539efc0>, <class 'array.array'>: <function array2Str at 0x7fdad539f1a0>, <class 'bool'>: <function Bool2Str at 0x7fdad539ed40>, <class 'datetime.date'>: <function Thing2Literal at 0x7fdad539f060>, <class 'datetime.datetime'>: <function DateTime2literal at 0x7fdad539e7a0>, <class 'datetime.timedelta'>: <function escape_timedelta at 0x7fdad539ff60>, <class 'set'>: <function Set2Str at 0x7fdad539ede0>, <class 'decimal.Decimal'>: <function Decimal2Literal at 0x7fdad539f100>, 1: <class 'int'>, 2: <c...<class 'bytes'>, 245: <class 'bytes'>, <class 'dict'>: <function escape_dict at 0x7fdad53d0040>, <class 'frozenset'>: <function escape_frozenset at 0x7fdad539d620>}, 'charset': 'utf8mb4', 'use_unicode': True, 'database': '_043458f75035292b', 'host': '127.0.0.1', 'port': 3306, 'password': '********'}
+      CLIENT = <module 'MySQLdb.constants.CLIENT' from 'env/lib/python3.12/site-packages/MySQLdb/constants/CLIENT.py'>
+      FIELD_TYPE = <module 'MySQLdb.constants.FIELD_TYPE' from 'env/lib/python3.12/site-packages/MySQLdb/constants/FIELD_TYPE.py'>
+      conversions = {<class 'int'>: <function Thing2Str at 0x7fdad539ee80>, <class 'float'>: <function Float2Str at 0x7fdad539ef20>, <class 'NoneType'>: <function None2NULL at 0x7fdad539efc0>, <class 'array.array'>: <function array2Str at 0x7fdad539f1a0>, <class 'bool'>: <function Bool2Str at 0x7fdad539ed40>, <class 'datetime.date'>: <function Thing2Literal at 0x7fdad539f060>, <class 'datetime.datetime'>: <function DateTime2literal at 0x7fdad539e7a0>, <class 'datetime.timedelta'>: <function DateTimeDelta2literal at 0x7fdad539e840>, <class 'set'>: <function Set2Str at 0x7fdad539ede0>, <class 'decimal.Decimal'>: <function Decimal2Literal at 0x7fdad539f100>, 1: <class 'int'>, 2: <class 'int'>, 3: <class 'int'>, 4:...r_None at 0x7fdad539e520>, 11: <function TimeDelta_or_None at 0x7fdad539e5c0>, 10: <function Date_or_None at 0x7fdad539e700>, 249: <class 'bytes'>, 250: <class 'bytes'>, 251: <class 'bytes'>, 252: <class 'bytes'>, 254: <class 'bytes'>, 253: <class 'bytes'>, 15: <class 'bytes'>, 245: <class 'bytes'>}
+      _bytes_or_str = ((128, bytes), (None, str))
+      kwargs2 = {'user': '_043458f75035292b', 'conv': {<class 'int'>: <function Thing2Str at 0x7fdad539ee80>, <class 'float'>: <function Float2Str at 0x7fdad539ef20>, <class 'NoneType'>: <function None2NULL at 0x7fdad539efc0>, <class 'array.array'>: <function array2Str at 0x7fdad539f1a0>, <class 'bool'>: <function Bool2Str at 0x7fdad539ed40>, <class 'datetime.date'>: <function Thing2Literal at 0x7fdad539f060>, <class 'datetime.datetime'>: <function DateTime2literal at 0x7fdad539e7a0>, <class 'datetime.timedelta'>: <function escape_timedelta at 0x7fdad539ff60>, <class 'set'>: <function Set2Str at 0x7fdad539ede0>, <class 'decimal.Decimal'>: <function Decimal2Literal at 0x7fdad539f100>, 1: <class 'int'>, 2: <c...lass 'bytes'>, 245: <class 'bytes'>, <class 'dict'>: <function escape_dict at 0x7fdad53d0040>, <class 'frozenset'>: <function escape_frozenset at 0x7fdad539d620>}, 'charset': 'utf8mb4', 'database': '_043458f75035292b', 'host': '127.0.0.1', 'port': 3306, 'password': '********', 'client_flag': 196608}
+      conv = {<class 'int'>: <function Thing2Str at 0x7fdad539ee80>, <class 'float'>: <function Float2Str at 0x7fdad539ef20>, <class 'NoneType'>: <function None2NULL at 0x7fdad539efc0>, <class 'array.array'>: <function array2Str at 0x7fdad539f1a0>, <class 'bool'>: <function Bool2Str at 0x7fdad539ed40>, <class 'datetime.date'>: <function Thing2Literal at 0x7fdad539f060>, <class 'datetime.datetime'>: <function DateTime2literal at 0x7fdad539e7a0>, <class 'datetime.timedelta'>: <function escape_timedelta at 0x7fdad539ff60>, <class 'set'>: <function Set2Str at 0x7fdad539ede0>, <class 'decimal.Decimal'>: <function Decimal2Literal at 0x7fdad539f100>, 1: <class 'int'>, 2: <class 'int'>, 3: <class 'int'>, 4: <cla...249: <class 'bytes'>, 250: <class 'bytes'>, 251: <class 'bytes'>, 252: <class 'bytes'>, 254: <class 'bytes'>, 253: <class 'bytes'>, 15: <class 'bytes'>, 245: <class 'bytes'>, <class 'dict'>: <function escape_dict at 0x7fdad53d0040>, <class 'frozenset'>: <function escape_frozenset at 0x7fdad539d620>}
+      conv2 = {<class 'int'>: <function Thing2Str at 0x7fdad539ee80>, <class 'float'>: <function Float2Str at 0x7fdad539ef20>, <class 'NoneType'>: <function None2NULL at 0x7fdad539efc0>, <class 'array.array'>: <function array2Str at 0x7fdad539f1a0>, <class 'bool'>: <function Bool2Str at 0x7fdad539ed40>, <class 'datetime.date'>: <function Thing2Literal at 0x7fdad539f060>, <class 'datetime.datetime'>: <function DateTime2literal at 0x7fdad539e7a0>, <class 'datetime.timedelta'>: <function escape_timedelta at 0x7fdad539ff60>, <class 'set'>: <function Set2Str at 0x7fdad539ede0>, <class 'decimal.Decimal'>: <function Decimal2Literal at 0x7fdad539f100>, 1: <class 'int'>, 2: <class 'int'>, 3: <class 'int'>, 4: <cla...249: <class 'bytes'>, 250: <class 'bytes'>, 251: <class 'bytes'>, 252: <class 'bytes'>, 254: <class 'bytes'>, 253: <class 'bytes'>, 15: <class 'bytes'>, 245: <class 'bytes'>, <class 'dict'>: <function escape_dict at 0x7fdad53d0040>, <class 'frozenset'>: <function escape_frozenset at 0x7fdad539d620>}
+      k = frozenset
+      v = <function escape_frozenset at 0x7fdad539d620>
+      cursorclass = MySQLdb.cursors.Cursor
+      charset = 'utf8mb4'
+      collation = ''
+      use_unicode = True
+      sql_mode = ''
+      client_flag = 196608
+      multi_statements = True
+      autocommit = False
+      __class__ = MySQLdb.connections.Connection
+MySQLdb.OperationalError: (1045, "Access denied for user '_043458f75035292b'@'localhost' (using password: YES)")
+Backup failed for Site site1.local. Database or site_config.json may be corrupted
+Traceback with variables (most recent call last):
+  File "apps/frappe/frappe/commands/site.py", line 867, in backup
+    odb = scheduled_backup(
+      context = CliCtxObj(force=False, profile=False, sites=['crm.localhost', 'newsite.local', 'site1.local'], verbose=True)
+      with_files = False
+      backup_path = None
+      backup_path_db = None
+      backup_path_files = None
+      backup_path_private_files = None
+      backup_path_conf = None
+      ignore_backup_conf = False
+      verbose = True
+      compress = False
+      include = ''
+      exclude = ''
+      old_backup_metadata = False
+      scheduled_backup = <function scheduled_backup at 0x7fdad5f60720>
+      exit_code = 1
+      rollback_callback = None
+      site = 'site1.local'
+      odb = frappe.utils.backups.BackupGenerator(backup_excludes=[], backup_includes=[], backup_path=None, backup_path_conf='./crm.localhost/private/backups/20251201_113002-crm_localhost-site_config_backup.json', backup_path_db='./crm.localhost/private/backups/20251201_113002-crm_localhost-database.sql.gz', backup_path_files='./crm.localhost/private/backups/20251201_113002-crm_localhost-files.tar', backup_path_private_files='./crm.localhost/private/backups/20251201_113002-crm_localhost-private-files.tar', compress_files=False, db_host='127.0.0.1', db_name='_04d60aa677a7cd37', db_port=3306, db_socket=None, db_type='mariadb', exclude_doctypes='', ignore_conf=False, include_doctypes='', old_backup_metadata=False, partial=[], password='zPSqrMxU8EMyig0d', rollback_callback=frappe.utils.CallbackManager(-), site_slug='crm_localhost', todays_date='20251201_113002', user='_04d60aa677a7cd37', verbose=True)
+  File "apps/frappe/frappe/utils/backups.py", line 589, in scheduled_backup
+    return new_backup(
+      older_than = 6
+      ignore_files = True
+      backup_path = None
+      backup_path_db = None
+      backup_path_files = None
+      backup_path_private_files = None
+      backup_path_conf = None
+      ignore_conf = False
+      include_doctypes = ''
+      exclude_doctypes = ''
+      compress = False
+      force = True
+      verbose = True
+      old_backup_metadata = False
+      rollback_callback = frappe.utils.CallbackManager()
+  File "apps/frappe/frappe/utils/backups.py", line 626, in new_backup
+    odb = BackupGenerator(
+      older_than = 6
+      ignore_files = True
+      backup_path = None
+      backup_path_db = None
+      backup_path_files = None
+      backup_path_private_files = None
+      backup_path_conf = None
+      ignore_conf = False
+      include_doctypes = ''
+      exclude_doctypes = ''
+      compress = False
+      force = True
+      verbose = True
+      old_backup_metadata = False
+      rollback_callback = frappe.utils.CallbackManager()
+  File "apps/frappe/frappe/utils/backups.py", line 89, in __init__
+    self.setup_backup_tables()
+      self = frappe.utils.backups.BackupGenerator(backup_path=None, backup_path_conf=None, backup_path_db=None, backup_path_files=None, backup_path_private_files=None, compress_files=False, db_host='127.0.0.1', db_name='_043458f75035292b', db_port=3306, db_socket=None, db_type='mariadb', exclude_doctypes='', ignore_conf=False, include_doctypes='', old_backup_metadata=False, partial=False, password='eSNoS3F41d3NmOtb', rollback_callback=frappe.utils.CallbackManager(-), site_slug='newsite_local', user='_043458f75035292b', verbose=True)
+      db_name = '_043458f75035292b'
+      user = '_043458f75035292b'
+      password = ********
+      backup_path = None
+      backup_path_db = None
+      backup_path_files = None
+      backup_path_private_files = None
+      db_socket = None
+      db_host = '127.0.0.1'
+      db_port = 3306
+      db_type = 'mariadb'
+      backup_path_conf = None
+      ignore_conf = False
+      compress_files = False
+      include_doctypes = ''
+      exclude_doctypes = ''
+      verbose = True
+      old_backup_metadata = False
+      rollback_callback = frappe.utils.CallbackManager()
+      site = 'newsite.local'
+  File "apps/frappe/frappe/utils/backups.py", line 126, in setup_backup_tables
+    self._set_existing_tables()
+      self = frappe.utils.backups.BackupGenerator(backup_path=None, backup_path_conf=None, backup_path_db=None, backup_path_files=None, backup_path_private_files=None, compress_files=False, db_host='127.0.0.1', db_name='_043458f75035292b', db_port=3306, db_socket=None, db_type='mariadb', exclude_doctypes='', ignore_conf=False, include_doctypes='', old_backup_metadata=False, partial=False, password='eSNoS3F41d3NmOtb', rollback_callback=frappe.utils.CallbackManager(-), site_slug='newsite_local', user='_043458f75035292b', verbose=True)
+  File "apps/frappe/frappe/utils/backups.py", line 122, in _set_existing_tables
+    self._existing_tables = frappe.db.get_tables()
+      self = frappe.utils.backups.BackupGenerator(backup_path=None, backup_path_conf=None, backup_path_db=None, backup_path_files=None, backup_path_private_files=None, compress_files=False, db_host='127.0.0.1', db_name='_043458f75035292b', db_port=3306, db_socket=None, db_type='mariadb', exclude_doctypes='', ignore_conf=False, include_doctypes='', old_backup_metadata=False, partial=False, password='eSNoS3F41d3NmOtb', rollback_callback=frappe.utils.CallbackManager(-), site_slug='newsite_local', user='_043458f75035292b', verbose=True)
+  File "apps/frappe/frappe/database/mariadb/mysqlclient.py", line 519, in get_tables
+    .run(pluck=True)
+      self = frappe.database.mariadb.mysqlclient.MariaDBDatabase(after_commit=frappe.utils.CallbackManager(-), after_rollback=frappe.utils.CallbackManager(-), auto_commit_on_many_writes=0, before_commit=frappe.utils.CallbackManager(-), before_rollback=frappe.utils.CallbackManager(-), cur_db_name='_043458f75035292b', db_type='mariadb', host='127.0.0.1', logger=<Logger database-newsite.local (WARNING)>, password='eSNoS3F41d3NmOtb', port=3306, socket=None, transaction_writes=0, type_map={'Currency': ('decimal', '21,9'), 'Int': ('int', '11'), 'Long Int': ('bigint', '20'), 'Float': ('decimal', '21,9'), 'Percent': ('decimal', '21,9'), 'Check': ('tinyint', '4'), 'Small Text': ('text', ''), 'Long Text': ('lon...'), 'Color': ('varchar', 140), 'Barcode': ('longtext', ''), 'Geolocation': ('longtext', ''), 'Duration': ('decimal', '21,9'), 'Icon': ('varchar', 140), 'Phone': ('varchar', 140), 'Autocomplete': ('varchar', 140), 'JSON': ('json', '')}, user='_043458f75035292b', value_cache=collections.defaultdict{})
+      cached = True
+      to_query = True
+      tables = None
+      information_schema = pypika.queries.Schema()
+  File "apps/frappe/frappe/query_builder/utils.py", line 85, in execute_query
+    result = frappe.local.db.sql(query, params, *args, **kwargs)  # nosemgrep
+      query = 'SELECT `table_name` FROM `information_schema`.`tables` WHERE `table_schema`=%(param1)s'
+      args = ()
+      kwargs = {'pluck': True}
+      child_queries = "_child_queries"
+      params = {'param1': '_043458f75035292b'}
+  File "apps/frappe/frappe/database/database.py", line 249, in sql
+    self.connect()
+      self = frappe.database.mariadb.mysqlclient.MariaDBDatabase(after_commit=frappe.utils.CallbackManager(-), after_rollback=frappe.utils.CallbackManager(-), auto_commit_on_many_writes=0, before_commit=frappe.utils.CallbackManager(-), before_rollback=frappe.utils.CallbackManager(-), cur_db_name='_043458f75035292b', db_type='mariadb', host='127.0.0.1', logger=<Logger database-newsite.local (WARNING)>, password='eSNoS3F41d3NmOtb', port=3306, socket=None, transaction_writes=0, type_map={'Currency': ('decimal', '21,9'), 'Int': ('int', '11'), 'Long Int': ('bigint', '20'), 'Float': ('decimal', '21,9'), 'Percent': ('decimal', '21,9'), 'Check': ('tinyint', '4'), 'Small Text': ('text', ''), 'Long Text': ('lon...'), 'Color': ('varchar', 140), 'Barcode': ('longtext', ''), 'Geolocation': ('longtext', ''), 'Duration': ('decimal', '21,9'), 'Icon': ('varchar', 140), 'Phone': ('varchar', 140), 'Autocomplete': ('varchar', 140), 'JSON': ('json', '')}, user='_043458f75035292b', value_cache=collections.defaultdict{})
+      query = 'SELECT `table_name` FROM `information_schema`.`tables` WHERE `table_schema`=%(param1)s'
+      values = {'param1': '_043458f75035292b'}
+      as_dict = 0
+      as_list = 0
+      debug = False
+      ignore_ddl = 0
+      auto_commit = 0
+      update = None
+      explain = False
+      run = True
+      pluck = True
+      as_iterator = False
+      query_type = 'select'
+  File "apps/frappe/frappe/database/database.py", line 147, in connect
+    self.get_connection()
+      self = frappe.database.mariadb.mysqlclient.MariaDBDatabase(after_commit=frappe.utils.CallbackManager(-), after_rollback=frappe.utils.CallbackManager(-), auto_commit_on_many_writes=0, before_commit=frappe.utils.CallbackManager(-), before_rollback=frappe.utils.CallbackManager(-), cur_db_name='_043458f75035292b', db_type='mariadb', host='127.0.0.1', logger=<Logger database-newsite.local (WARNING)>, password='eSNoS3F41d3NmOtb', port=3306, socket=None, transaction_writes=0, type_map={'Currency': ('decimal', '21,9'), 'Int': ('int', '11'), 'Long Int': ('bigint', '20'), 'Float': ('decimal', '21,9'), 'Percent': ('decimal', '21,9'), 'Check': ('tinyint', '4'), 'Small Text': ('text', ''), 'Long Text': ('lon...'), 'Color': ('varchar', 140), 'Barcode': ('longtext', ''), 'Geolocation': ('longtext', ''), 'Duration': ('decimal', '21,9'), 'Icon': ('varchar', 140), 'Phone': ('varchar', 140), 'Autocomplete': ('varchar', 140), 'JSON': ('json', '')}, user='_043458f75035292b', value_cache=collections.defaultdict{})
+  File "apps/frappe/frappe/database/mariadb/mysqlclient.py", line 109, in get_connection
+    conn = self._get_connection()
+      self = frappe.database.mariadb.mysqlclient.MariaDBDatabase(after_commit=frappe.utils.CallbackManager(-), after_rollback=frappe.utils.CallbackManager(-), auto_commit_on_many_writes=0, before_commit=frappe.utils.CallbackManager(-), before_rollback=frappe.utils.CallbackManager(-), cur_db_name='_043458f75035292b', db_type='mariadb', host='127.0.0.1', logger=<Logger database-newsite.local (WARNING)>, password='eSNoS3F41d3NmOtb', port=3306, socket=None, transaction_writes=0, type_map={'Currency': ('decimal', '21,9'), 'Int': ('int', '11'), 'Long Int': ('bigint', '20'), 'Float': ('decimal', '21,9'), 'Percent': ('decimal', '21,9'), 'Check': ('tinyint', '4'), 'Small Text': ('text', ''), 'Long Text': ('lon...'), 'Color': ('varchar', 140), 'Barcode': ('longtext', ''), 'Geolocation': ('longtext', ''), 'Duration': ('decimal', '21,9'), 'Icon': ('varchar', 140), 'Phone': ('varchar', 140), 'Autocomplete': ('varchar', 140), 'JSON': ('json', '')}, user='_043458f75035292b', value_cache=collections.defaultdict{})
+  File "apps/frappe/frappe/database/mariadb/mysqlclient.py", line 114, in _get_connection
+    return self.create_connection()
+      self = frappe.database.mariadb.mysqlclient.MariaDBDatabase(after_commit=frappe.utils.CallbackManager(-), after_rollback=frappe.utils.CallbackManager(-), auto_commit_on_many_writes=0, before_commit=frappe.utils.CallbackManager(-), before_rollback=frappe.utils.CallbackManager(-), cur_db_name='_043458f75035292b', db_type='mariadb', host='127.0.0.1', logger=<Logger database-newsite.local (WARNING)>, password='eSNoS3F41d3NmOtb', port=3306, socket=None, transaction_writes=0, type_map={'Currency': ('decimal', '21,9'), 'Int': ('int', '11'), 'Long Int': ('bigint', '20'), 'Float': ('decimal', '21,9'), 'Percent': ('decimal', '21,9'), 'Check': ('tinyint', '4'), 'Small Text': ('text', ''), 'Long Text': ('lon...'), 'Color': ('varchar', 140), 'Barcode': ('longtext', ''), 'Geolocation': ('longtext', ''), 'Duration': ('decimal', '21,9'), 'Icon': ('varchar', 140), 'Phone': ('varchar', 140), 'Autocomplete': ('varchar', 140), 'JSON': ('json', '')}, user='_043458f75035292b', value_cache=collections.defaultdict{})
+  File "apps/frappe/frappe/database/mariadb/mysqlclient.py", line 117, in create_connection
+    return MySQLdb.connect(**self.get_connection_settings())
+      self = frappe.database.mariadb.mysqlclient.MariaDBDatabase(after_commit=frappe.utils.CallbackManager(-), after_rollback=frappe.utils.CallbackManager(-), auto_commit_on_many_writes=0, before_commit=frappe.utils.CallbackManager(-), before_rollback=frappe.utils.CallbackManager(-), cur_db_name='_043458f75035292b', db_type='mariadb', host='127.0.0.1', logger=<Logger database-newsite.local (WARNING)>, password='eSNoS3F41d3NmOtb', port=3306, socket=None, transaction_writes=0, type_map={'Currency': ('decimal', '21,9'), 'Int': ('int', '11'), 'Long Int': ('bigint', '20'), 'Float': ('decimal', '21,9'), 'Percent': ('decimal', '21,9'), 'Check': ('tinyint', '4'), 'Small Text': ('text', ''), 'Long Text': ('lon...'), 'Color': ('varchar', 140), 'Barcode': ('longtext', ''), 'Geolocation': ('longtext', ''), 'Duration': ('decimal', '21,9'), 'Icon': ('varchar', 140), 'Phone': ('varchar', 140), 'Autocomplete': ('varchar', 140), 'JSON': ('json', '')}, user='_043458f75035292b', value_cache=collections.defaultdict{})
+  File "env/lib/python3.12/site-packages/MySQLdb/__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+      args = ()
+      kwargs = {'user': '_043458f75035292b', 'conv': {<class 'int'>: <function Thing2Str at 0x7fdad539ee80>, <class 'float'>: <function Float2Str at 0x7fdad539ef20>, <class 'NoneType'>: <function None2NULL at 0x7fdad539efc0>, <class 'array.array'>: <function array2Str at 0x7fdad539f1a0>, <class 'bool'>: <function Bool2Str at 0x7fdad539ed40>, <class 'datetime.date'>: <function Thing2Literal at 0x7fdad539f060>, <class 'datetime.datetime'>: <function DateTime2literal at 0x7fdad539e7a0>, <class 'datetime.timedelta'>: <function escape_timedelta at 0x7fdad539ff60>, <class 'set'>: <function Set2Str at 0x7fdad539ede0>, <class 'decimal.Decimal'>: <function Decimal2Literal at 0x7fdad539f100>, 1: <class 'int'>, 2: <c...<class 'bytes'>, 245: <class 'bytes'>, <class 'dict'>: <function escape_dict at 0x7fdad53d0040>, <class 'frozenset'>: <function escape_frozenset at 0x7fdad539d620>}, 'charset': 'utf8mb4', 'use_unicode': True, 'database': '_043458f75035292b', 'host': '127.0.0.1', 'port': 3306, 'password': '********'}
+      Connection = MySQLdb.connections.Connection
+  File "env/lib/python3.12/site-packages/MySQLdb/connections.py", line 200, in __init__
+    super().__init__(*args, **kwargs2)
+      self = <_mysql.connection open to '(null)' at 0x2e863870>
+      args = ()
+      kwargs = {'user': '_043458f75035292b', 'conv': {<class 'int'>: <function Thing2Str at 0x7fdad539ee80>, <class 'float'>: <function Float2Str at 0x7fdad539ef20>, <class 'NoneType'>: <function None2NULL at 0x7fdad539efc0>, <class 'array.array'>: <function array2Str at 0x7fdad539f1a0>, <class 'bool'>: <function Bool2Str at 0x7fdad539ed40>, <class 'datetime.date'>: <function Thing2Literal at 0x7fdad539f060>, <class 'datetime.datetime'>: <function DateTime2literal at 0x7fdad539e7a0>, <class 'datetime.timedelta'>: <function escape_timedelta at 0x7fdad539ff60>, <class 'set'>: <function Set2Str at 0x7fdad539ede0>, <class 'decimal.Decimal'>: <function Decimal2Literal at 0x7fdad539f100>, 1: <class 'int'>, 2: <c...<class 'bytes'>, 245: <class 'bytes'>, <class 'dict'>: <function escape_dict at 0x7fdad53d0040>, <class 'frozenset'>: <function escape_frozenset at 0x7fdad539d620>}, 'charset': 'utf8mb4', 'use_unicode': True, 'database': '_043458f75035292b', 'host': '127.0.0.1', 'port': 3306, 'password': '********'}
+      CLIENT = <module 'MySQLdb.constants.CLIENT' from 'env/lib/python3.12/site-packages/MySQLdb/constants/CLIENT.py'>
+      FIELD_TYPE = <module 'MySQLdb.constants.FIELD_TYPE' from 'env/lib/python3.12/site-packages/MySQLdb/constants/FIELD_TYPE.py'>
+      conversions = {<class 'int'>: <function Thing2Str at 0x7fdad539ee80>, <class 'float'>: <function Float2Str at 0x7fdad539ef20>, <class 'NoneType'>: <function None2NULL at 0x7fdad539efc0>, <class 'array.array'>: <function array2Str at 0x7fdad539f1a0>, <class 'bool'>: <function Bool2Str at 0x7fdad539ed40>, <class 'datetime.date'>: <function Thing2Literal at 0x7fdad539f060>, <class 'datetime.datetime'>: <function DateTime2literal at 0x7fdad539e7a0>, <class 'datetime.timedelta'>: <function DateTimeDelta2literal at 0x7fdad539e840>, <class 'set'>: <function Set2Str at 0x7fdad539ede0>, <class 'decimal.Decimal'>: <function Decimal2Literal at 0x7fdad539f100>, 1: <class 'int'>, 2: <class 'int'>, 3: <class 'int'>, 4:...r_None at 0x7fdad539e520>, 11: <function TimeDelta_or_None at 0x7fdad539e5c0>, 10: <function Date_or_None at 0x7fdad539e700>, 249: <class 'bytes'>, 250: <class 'bytes'>, 251: <class 'bytes'>, 252: <class 'bytes'>, 254: <class 'bytes'>, 253: <class 'bytes'>, 15: <class 'bytes'>, 245: <class 'bytes'>}
+      _bytes_or_str = ((128, bytes), (None, str))
+      kwargs2 = {'user': '_043458f75035292b', 'conv': {<class 'int'>: <function Thing2Str at 0x7fdad539ee80>, <class 'float'>: <function Float2Str at 0x7fdad539ef20>, <class 'NoneType'>: <function None2NULL at 0x7fdad539efc0>, <class 'array.array'>: <function array2Str at 0x7fdad539f1a0>, <class 'bool'>: <function Bool2Str at 0x7fdad539ed40>, <class 'datetime.date'>: <function Thing2Literal at 0x7fdad539f060>, <class 'datetime.datetime'>: <function DateTime2literal at 0x7fdad539e7a0>, <class 'datetime.timedelta'>: <function escape_timedelta at 0x7fdad539ff60>, <class 'set'>: <function Set2Str at 0x7fdad539ede0>, <class 'decimal.Decimal'>: <function Decimal2Literal at 0x7fdad539f100>, 1: <class 'int'>, 2: <c...lass 'bytes'>, 245: <class 'bytes'>, <class 'dict'>: <function escape_dict at 0x7fdad53d0040>, <class 'frozenset'>: <function escape_frozenset at 0x7fdad539d620>}, 'charset': 'utf8mb4', 'database': '_043458f75035292b', 'host': '127.0.0.1', 'port': 3306, 'password': '********', 'client_flag': 196608}
+      conv = {<class 'int'>: <function Thing2Str at 0x7fdad539ee80>, <class 'float'>: <function Float2Str at 0x7fdad539ef20>, <class 'NoneType'>: <function None2NULL at 0x7fdad539efc0>, <class 'array.array'>: <function array2Str at 0x7fdad539f1a0>, <class 'bool'>: <function Bool2Str at 0x7fdad539ed40>, <class 'datetime.date'>: <function Thing2Literal at 0x7fdad539f060>, <class 'datetime.datetime'>: <function DateTime2literal at 0x7fdad539e7a0>, <class 'datetime.timedelta'>: <function escape_timedelta at 0x7fdad539ff60>, <class 'set'>: <function Set2Str at 0x7fdad539ede0>, <class 'decimal.Decimal'>: <function Decimal2Literal at 0x7fdad539f100>, 1: <class 'int'>, 2: <class 'int'>, 3: <class 'int'>, 4: <cla...249: <class 'bytes'>, 250: <class 'bytes'>, 251: <class 'bytes'>, 252: <class 'bytes'>, 254: <class 'bytes'>, 253: <class 'bytes'>, 15: <class 'bytes'>, 245: <class 'bytes'>, <class 'dict'>: <function escape_dict at 0x7fdad53d0040>, <class 'frozenset'>: <function escape_frozenset at 0x7fdad539d620>}
+      conv2 = {<class 'int'>: <function Thing2Str at 0x7fdad539ee80>, <class 'float'>: <function Float2Str at 0x7fdad539ef20>, <class 'NoneType'>: <function None2NULL at 0x7fdad539efc0>, <class 'array.array'>: <function array2Str at 0x7fdad539f1a0>, <class 'bool'>: <function Bool2Str at 0x7fdad539ed40>, <class 'datetime.date'>: <function Thing2Literal at 0x7fdad539f060>, <class 'datetime.datetime'>: <function DateTime2literal at 0x7fdad539e7a0>, <class 'datetime.timedelta'>: <function escape_timedelta at 0x7fdad539ff60>, <class 'set'>: <function Set2Str at 0x7fdad539ede0>, <class 'decimal.Decimal'>: <function Decimal2Literal at 0x7fdad539f100>, 1: <class 'int'>, 2: <class 'int'>, 3: <class 'int'>, 4: <cla...249: <class 'bytes'>, 250: <class 'bytes'>, 251: <class 'bytes'>, 252: <class 'bytes'>, 254: <class 'bytes'>, 253: <class 'bytes'>, 15: <class 'bytes'>, 245: <class 'bytes'>, <class 'dict'>: <function escape_dict at 0x7fdad53d0040>, <class 'frozenset'>: <function escape_frozenset at 0x7fdad539d620>}
+      k = frozenset
+      v = <function escape_frozenset at 0x7fdad539d620>
+      cursorclass = MySQLdb.cursors.Cursor
+      charset = 'utf8mb4'
+      collation = ''
+      use_unicode = True
+      sql_mode = ''
+      client_flag = 196608
+      multi_statements = True
+      autocommit = False
+      __class__ = MySQLdb.connections.Connection
+MySQLdb.OperationalError: (1045, "Access denied for user '_043458f75035292b'@'localhost' (using password: YES)")

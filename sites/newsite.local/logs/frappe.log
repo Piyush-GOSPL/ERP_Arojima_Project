@@ -1,0 +1,801 @@
+2025-12-01 06:31:02,465 ERROR frappe Unable to load translations
+Site: newsite.local
+Form Dict: {}
+Traceback (most recent call last):
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/utils/caching.py", line 65, in wrapper
+    return _cache[func][args_key]
+           ~~~~~~~~~~~~^^^^^^^^^^
+KeyError: ((), <object object at 0x789ec6b78f80>, frozenset({('_ensure_on_bench', True)}))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/app.py", line 102, in application
+    init_request(request)
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/app.py", line 178, in init_request
+    frappe.init(site, sites_path=_sites_path, force=True)
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/__init__.py", line 208, in init
+    setup_module_map(include_all_apps=not (frappe.request or frappe.job or frappe.flags.in_migrate))
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/__init__.py", line 1036, in setup_module_map
+    apps = get_installed_apps(_ensure_on_bench=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/utils/caching.py", line 71, in wrapper
+    return_val = func(*args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/__init__.py", line 916, in get_installed_apps
+    installed = orjson.loads(db.get_global("installed_apps") or "[]")
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 1144, in get_global
+    return self.get_default(key, user)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 1148, in get_default
+    d = self.get_defaults(key, parent)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 1164, in get_defaults
+    defaults = frappe.defaults.get_defaults_for(parent)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/defaults.py", line 249, in get_defaults_for
+    .run(as_dict=True)
+     ^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/query_builder/utils.py", line 85, in execute_query
+    result = frappe.local.db.sql(query, params, *args, **kwargs)  # nosemgrep
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 249, in sql
+    self.connect()
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 147, in connect
+    self.get_connection()
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/mariadb/mysqlclient.py", line 109, in get_connection
+    conn = self._get_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/mariadb/mysqlclient.py", line 114, in _get_connection
+    return self.create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/mariadb/mysqlclient.py", line 117, in create_connection
+    return MySQLdb.connect(**self.get_connection_settings())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/env/lib/python3.12/site-packages/MySQLdb/__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/env/lib/python3.12/site-packages/MySQLdb/connections.py", line 200, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (1045, "Access denied for user '_043458f75035292b'@'localhost' (using password: YES)")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/utils/caching.py", line 65, in wrapper
+    return _cache[func][args_key]
+           ~~~~~~~~~~~~^^^^^^^^^^
+KeyError: ((), <object object at 0x789ec6b78f80>, frozenset({('_ensure_on_bench', True)}))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/translate.py", line 174, in get_all_translations
+    return frappe.cache.hget(MERGED_TRANSLATION_KEY, lang, generator=_merge_translations)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/utils/redis_wrapper.py", line 253, in hget
+    value = generator()
+            ^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/translate.py", line 162, in _merge_translations
+    all_translations.update(get_translations_from_apps(lang))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/translate.py", line 189, in get_translations_from_apps
+    for app in apps or frappe.get_installed_apps(_ensure_on_bench=True):
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/utils/caching.py", line 71, in wrapper
+    return_val = func(*args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/__init__.py", line 916, in get_installed_apps
+    installed = orjson.loads(db.get_global("installed_apps") or "[]")
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 1144, in get_global
+    return self.get_default(key, user)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 1148, in get_default
+    d = self.get_defaults(key, parent)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 1164, in get_defaults
+    defaults = frappe.defaults.get_defaults_for(parent)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/defaults.py", line 249, in get_defaults_for
+    .run(as_dict=True)
+     ^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/query_builder/utils.py", line 85, in execute_query
+    result = frappe.local.db.sql(query, params, *args, **kwargs)  # nosemgrep
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 249, in sql
+    self.connect()
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 147, in connect
+    self.get_connection()
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/mariadb/mysqlclient.py", line 109, in get_connection
+    conn = self._get_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/mariadb/mysqlclient.py", line 114, in _get_connection
+    return self.create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/mariadb/mysqlclient.py", line 117, in create_connection
+    return MySQLdb.connect(**self.get_connection_settings())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/env/lib/python3.12/site-packages/MySQLdb/__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/env/lib/python3.12/site-packages/MySQLdb/connections.py", line 200, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (1045, "Access denied for user '_043458f75035292b'@'localhost' (using password: YES)")
+2025-12-01 06:31:02,475 ERROR frappe Unable to load translations
+Site: newsite.local
+Form Dict: {}
+Traceback (most recent call last):
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/utils/caching.py", line 65, in wrapper
+    return _cache[func][args_key]
+           ~~~~~~~~~~~~^^^^^^^^^^
+KeyError: ((), <object object at 0x789ec6b78f80>, frozenset({('_ensure_on_bench', True)}))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/app.py", line 102, in application
+    init_request(request)
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/app.py", line 178, in init_request
+    frappe.init(site, sites_path=_sites_path, force=True)
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/__init__.py", line 208, in init
+    setup_module_map(include_all_apps=not (frappe.request or frappe.job or frappe.flags.in_migrate))
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/__init__.py", line 1036, in setup_module_map
+    apps = get_installed_apps(_ensure_on_bench=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/utils/caching.py", line 71, in wrapper
+    return_val = func(*args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/__init__.py", line 916, in get_installed_apps
+    installed = orjson.loads(db.get_global("installed_apps") or "[]")
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 1144, in get_global
+    return self.get_default(key, user)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 1148, in get_default
+    d = self.get_defaults(key, parent)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 1164, in get_defaults
+    defaults = frappe.defaults.get_defaults_for(parent)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/defaults.py", line 249, in get_defaults_for
+    .run(as_dict=True)
+     ^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/query_builder/utils.py", line 85, in execute_query
+    result = frappe.local.db.sql(query, params, *args, **kwargs)  # nosemgrep
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 249, in sql
+    self.connect()
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 147, in connect
+    self.get_connection()
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/mariadb/mysqlclient.py", line 109, in get_connection
+    conn = self._get_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/mariadb/mysqlclient.py", line 114, in _get_connection
+    return self.create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/mariadb/mysqlclient.py", line 117, in create_connection
+    return MySQLdb.connect(**self.get_connection_settings())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/env/lib/python3.12/site-packages/MySQLdb/__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/env/lib/python3.12/site-packages/MySQLdb/connections.py", line 200, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (1045, "Access denied for user '_043458f75035292b'@'localhost' (using password: YES)")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/utils/caching.py", line 65, in wrapper
+    return _cache[func][args_key]
+           ~~~~~~~~~~~~^^^^^^^^^^
+KeyError: ((), <object object at 0x789ec6b78f80>, frozenset({('_ensure_on_bench', True)}))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/translate.py", line 174, in get_all_translations
+    return frappe.cache.hget(MERGED_TRANSLATION_KEY, lang, generator=_merge_translations)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/utils/redis_wrapper.py", line 253, in hget
+    value = generator()
+            ^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/translate.py", line 162, in _merge_translations
+    all_translations.update(get_translations_from_apps(lang))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/translate.py", line 189, in get_translations_from_apps
+    for app in apps or frappe.get_installed_apps(_ensure_on_bench=True):
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/utils/caching.py", line 71, in wrapper
+    return_val = func(*args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/__init__.py", line 916, in get_installed_apps
+    installed = orjson.loads(db.get_global("installed_apps") or "[]")
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 1144, in get_global
+    return self.get_default(key, user)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 1148, in get_default
+    d = self.get_defaults(key, parent)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 1164, in get_defaults
+    defaults = frappe.defaults.get_defaults_for(parent)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/defaults.py", line 249, in get_defaults_for
+    .run(as_dict=True)
+     ^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/query_builder/utils.py", line 85, in execute_query
+    result = frappe.local.db.sql(query, params, *args, **kwargs)  # nosemgrep
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 249, in sql
+    self.connect()
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 147, in connect
+    self.get_connection()
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/mariadb/mysqlclient.py", line 109, in get_connection
+    conn = self._get_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/mariadb/mysqlclient.py", line 114, in _get_connection
+    return self.create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/mariadb/mysqlclient.py", line 117, in create_connection
+    return MySQLdb.connect(**self.get_connection_settings())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/env/lib/python3.12/site-packages/MySQLdb/__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/env/lib/python3.12/site-packages/MySQLdb/connections.py", line 200, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (1045, "Access denied for user '_043458f75035292b'@'localhost' (using password: YES)")
+2025-12-01 06:31:06,000 ERROR frappe Unable to load translations
+Site: newsite.local
+Form Dict: {}
+Traceback (most recent call last):
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/utils/caching.py", line 65, in wrapper
+    return _cache[func][args_key]
+           ~~~~~~~~~~~~^^^^^^^^^^
+KeyError: ((), <object object at 0x789ec6b78f80>, frozenset({('_ensure_on_bench', True)}))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/app.py", line 102, in application
+    init_request(request)
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/app.py", line 178, in init_request
+    frappe.init(site, sites_path=_sites_path, force=True)
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/__init__.py", line 208, in init
+    setup_module_map(include_all_apps=not (frappe.request or frappe.job or frappe.flags.in_migrate))
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/__init__.py", line 1036, in setup_module_map
+    apps = get_installed_apps(_ensure_on_bench=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/utils/caching.py", line 71, in wrapper
+    return_val = func(*args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/__init__.py", line 916, in get_installed_apps
+    installed = orjson.loads(db.get_global("installed_apps") or "[]")
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 1144, in get_global
+    return self.get_default(key, user)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 1148, in get_default
+    d = self.get_defaults(key, parent)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 1164, in get_defaults
+    defaults = frappe.defaults.get_defaults_for(parent)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/defaults.py", line 249, in get_defaults_for
+    .run(as_dict=True)
+     ^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/query_builder/utils.py", line 85, in execute_query
+    result = frappe.local.db.sql(query, params, *args, **kwargs)  # nosemgrep
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 249, in sql
+    self.connect()
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 147, in connect
+    self.get_connection()
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/mariadb/mysqlclient.py", line 109, in get_connection
+    conn = self._get_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/mariadb/mysqlclient.py", line 114, in _get_connection
+    return self.create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/mariadb/mysqlclient.py", line 117, in create_connection
+    return MySQLdb.connect(**self.get_connection_settings())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/env/lib/python3.12/site-packages/MySQLdb/__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/env/lib/python3.12/site-packages/MySQLdb/connections.py", line 200, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (1045, "Access denied for user '_043458f75035292b'@'localhost' (using password: YES)")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/utils/caching.py", line 65, in wrapper
+    return _cache[func][args_key]
+           ~~~~~~~~~~~~^^^^^^^^^^
+KeyError: ((), <object object at 0x789ec6b78f80>, frozenset({('_ensure_on_bench', True)}))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/translate.py", line 174, in get_all_translations
+    return frappe.cache.hget(MERGED_TRANSLATION_KEY, lang, generator=_merge_translations)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/utils/redis_wrapper.py", line 253, in hget
+    value = generator()
+            ^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/translate.py", line 162, in _merge_translations
+    all_translations.update(get_translations_from_apps(lang))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/translate.py", line 189, in get_translations_from_apps
+    for app in apps or frappe.get_installed_apps(_ensure_on_bench=True):
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/utils/caching.py", line 71, in wrapper
+    return_val = func(*args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/__init__.py", line 916, in get_installed_apps
+    installed = orjson.loads(db.get_global("installed_apps") or "[]")
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 1144, in get_global
+    return self.get_default(key, user)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 1148, in get_default
+    d = self.get_defaults(key, parent)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 1164, in get_defaults
+    defaults = frappe.defaults.get_defaults_for(parent)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/defaults.py", line 249, in get_defaults_for
+    .run(as_dict=True)
+     ^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/query_builder/utils.py", line 85, in execute_query
+    result = frappe.local.db.sql(query, params, *args, **kwargs)  # nosemgrep
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 249, in sql
+    self.connect()
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 147, in connect
+    self.get_connection()
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/mariadb/mysqlclient.py", line 109, in get_connection
+    conn = self._get_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/mariadb/mysqlclient.py", line 114, in _get_connection
+    return self.create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/mariadb/mysqlclient.py", line 117, in create_connection
+    return MySQLdb.connect(**self.get_connection_settings())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/env/lib/python3.12/site-packages/MySQLdb/__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/env/lib/python3.12/site-packages/MySQLdb/connections.py", line 200, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (1045, "Access denied for user '_043458f75035292b'@'localhost' (using password: YES)")
+2025-12-01 06:31:06,005 ERROR frappe Unable to load translations
+Site: newsite.local
+Form Dict: {}
+Traceback (most recent call last):
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/utils/caching.py", line 65, in wrapper
+    return _cache[func][args_key]
+           ~~~~~~~~~~~~^^^^^^^^^^
+KeyError: ((), <object object at 0x789ec6b78f80>, frozenset({('_ensure_on_bench', True)}))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/app.py", line 102, in application
+    init_request(request)
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/app.py", line 178, in init_request
+    frappe.init(site, sites_path=_sites_path, force=True)
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/__init__.py", line 208, in init
+    setup_module_map(include_all_apps=not (frappe.request or frappe.job or frappe.flags.in_migrate))
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/__init__.py", line 1036, in setup_module_map
+    apps = get_installed_apps(_ensure_on_bench=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/utils/caching.py", line 71, in wrapper
+    return_val = func(*args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/__init__.py", line 916, in get_installed_apps
+    installed = orjson.loads(db.get_global("installed_apps") or "[]")
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 1144, in get_global
+    return self.get_default(key, user)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 1148, in get_default
+    d = self.get_defaults(key, parent)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 1164, in get_defaults
+    defaults = frappe.defaults.get_defaults_for(parent)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/defaults.py", line 249, in get_defaults_for
+    .run(as_dict=True)
+     ^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/query_builder/utils.py", line 85, in execute_query
+    result = frappe.local.db.sql(query, params, *args, **kwargs)  # nosemgrep
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 249, in sql
+    self.connect()
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 147, in connect
+    self.get_connection()
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/mariadb/mysqlclient.py", line 109, in get_connection
+    conn = self._get_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/mariadb/mysqlclient.py", line 114, in _get_connection
+    return self.create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/mariadb/mysqlclient.py", line 117, in create_connection
+    return MySQLdb.connect(**self.get_connection_settings())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/env/lib/python3.12/site-packages/MySQLdb/__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/env/lib/python3.12/site-packages/MySQLdb/connections.py", line 200, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (1045, "Access denied for user '_043458f75035292b'@'localhost' (using password: YES)")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/utils/caching.py", line 65, in wrapper
+    return _cache[func][args_key]
+           ~~~~~~~~~~~~^^^^^^^^^^
+KeyError: ((), <object object at 0x789ec6b78f80>, frozenset({('_ensure_on_bench', True)}))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/translate.py", line 174, in get_all_translations
+    return frappe.cache.hget(MERGED_TRANSLATION_KEY, lang, generator=_merge_translations)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/utils/redis_wrapper.py", line 253, in hget
+    value = generator()
+            ^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/translate.py", line 162, in _merge_translations
+    all_translations.update(get_translations_from_apps(lang))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/translate.py", line 189, in get_translations_from_apps
+    for app in apps or frappe.get_installed_apps(_ensure_on_bench=True):
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/utils/caching.py", line 71, in wrapper
+    return_val = func(*args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/__init__.py", line 916, in get_installed_apps
+    installed = orjson.loads(db.get_global("installed_apps") or "[]")
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 1144, in get_global
+    return self.get_default(key, user)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 1148, in get_default
+    d = self.get_defaults(key, parent)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 1164, in get_defaults
+    defaults = frappe.defaults.get_defaults_for(parent)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/defaults.py", line 249, in get_defaults_for
+    .run(as_dict=True)
+     ^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/query_builder/utils.py", line 85, in execute_query
+    result = frappe.local.db.sql(query, params, *args, **kwargs)  # nosemgrep
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 249, in sql
+    self.connect()
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 147, in connect
+    self.get_connection()
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/mariadb/mysqlclient.py", line 109, in get_connection
+    conn = self._get_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/mariadb/mysqlclient.py", line 114, in _get_connection
+    return self.create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/mariadb/mysqlclient.py", line 117, in create_connection
+    return MySQLdb.connect(**self.get_connection_settings())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/env/lib/python3.12/site-packages/MySQLdb/__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/env/lib/python3.12/site-packages/MySQLdb/connections.py", line 200, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (1045, "Access denied for user '_043458f75035292b'@'localhost' (using password: YES)")
+2025-12-01 06:31:08,379 ERROR frappe Unable to load translations
+Site: newsite.local
+Form Dict: {}
+Traceback (most recent call last):
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/utils/caching.py", line 65, in wrapper
+    return _cache[func][args_key]
+           ~~~~~~~~~~~~^^^^^^^^^^
+KeyError: ((), <object object at 0x789ec6b78f80>, frozenset({('_ensure_on_bench', True)}))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/app.py", line 102, in application
+    init_request(request)
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/app.py", line 178, in init_request
+    frappe.init(site, sites_path=_sites_path, force=True)
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/__init__.py", line 208, in init
+    setup_module_map(include_all_apps=not (frappe.request or frappe.job or frappe.flags.in_migrate))
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/__init__.py", line 1036, in setup_module_map
+    apps = get_installed_apps(_ensure_on_bench=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/utils/caching.py", line 71, in wrapper
+    return_val = func(*args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/__init__.py", line 916, in get_installed_apps
+    installed = orjson.loads(db.get_global("installed_apps") or "[]")
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 1144, in get_global
+    return self.get_default(key, user)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 1148, in get_default
+    d = self.get_defaults(key, parent)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 1164, in get_defaults
+    defaults = frappe.defaults.get_defaults_for(parent)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/defaults.py", line 249, in get_defaults_for
+    .run(as_dict=True)
+     ^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/query_builder/utils.py", line 85, in execute_query
+    result = frappe.local.db.sql(query, params, *args, **kwargs)  # nosemgrep
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 249, in sql
+    self.connect()
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 147, in connect
+    self.get_connection()
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/mariadb/mysqlclient.py", line 109, in get_connection
+    conn = self._get_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/mariadb/mysqlclient.py", line 114, in _get_connection
+    return self.create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/mariadb/mysqlclient.py", line 117, in create_connection
+    return MySQLdb.connect(**self.get_connection_settings())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/env/lib/python3.12/site-packages/MySQLdb/__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/env/lib/python3.12/site-packages/MySQLdb/connections.py", line 200, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (1045, "Access denied for user '_043458f75035292b'@'localhost' (using password: YES)")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/utils/caching.py", line 65, in wrapper
+    return _cache[func][args_key]
+           ~~~~~~~~~~~~^^^^^^^^^^
+KeyError: ((), <object object at 0x789ec6b78f80>, frozenset({('_ensure_on_bench', True)}))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/translate.py", line 174, in get_all_translations
+    return frappe.cache.hget(MERGED_TRANSLATION_KEY, lang, generator=_merge_translations)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/utils/redis_wrapper.py", line 253, in hget
+    value = generator()
+            ^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/translate.py", line 162, in _merge_translations
+    all_translations.update(get_translations_from_apps(lang))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/translate.py", line 189, in get_translations_from_apps
+    for app in apps or frappe.get_installed_apps(_ensure_on_bench=True):
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/utils/caching.py", line 71, in wrapper
+    return_val = func(*args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/__init__.py", line 916, in get_installed_apps
+    installed = orjson.loads(db.get_global("installed_apps") or "[]")
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 1144, in get_global
+    return self.get_default(key, user)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 1148, in get_default
+    d = self.get_defaults(key, parent)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 1164, in get_defaults
+    defaults = frappe.defaults.get_defaults_for(parent)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/defaults.py", line 249, in get_defaults_for
+    .run(as_dict=True)
+     ^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/query_builder/utils.py", line 85, in execute_query
+    result = frappe.local.db.sql(query, params, *args, **kwargs)  # nosemgrep
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 249, in sql
+    self.connect()
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 147, in connect
+    self.get_connection()
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/mariadb/mysqlclient.py", line 109, in get_connection
+    conn = self._get_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/mariadb/mysqlclient.py", line 114, in _get_connection
+    return self.create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/mariadb/mysqlclient.py", line 117, in create_connection
+    return MySQLdb.connect(**self.get_connection_settings())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/env/lib/python3.12/site-packages/MySQLdb/__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/env/lib/python3.12/site-packages/MySQLdb/connections.py", line 200, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (1045, "Access denied for user '_043458f75035292b'@'localhost' (using password: YES)")
+2025-12-01 06:31:08,385 ERROR frappe Unable to load translations
+Site: newsite.local
+Form Dict: {}
+Traceback (most recent call last):
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/utils/caching.py", line 65, in wrapper
+    return _cache[func][args_key]
+           ~~~~~~~~~~~~^^^^^^^^^^
+KeyError: ((), <object object at 0x789ec6b78f80>, frozenset({('_ensure_on_bench', True)}))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/app.py", line 102, in application
+    init_request(request)
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/app.py", line 178, in init_request
+    frappe.init(site, sites_path=_sites_path, force=True)
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/__init__.py", line 208, in init
+    setup_module_map(include_all_apps=not (frappe.request or frappe.job or frappe.flags.in_migrate))
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/__init__.py", line 1036, in setup_module_map
+    apps = get_installed_apps(_ensure_on_bench=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/utils/caching.py", line 71, in wrapper
+    return_val = func(*args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/__init__.py", line 916, in get_installed_apps
+    installed = orjson.loads(db.get_global("installed_apps") or "[]")
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 1144, in get_global
+    return self.get_default(key, user)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 1148, in get_default
+    d = self.get_defaults(key, parent)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 1164, in get_defaults
+    defaults = frappe.defaults.get_defaults_for(parent)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/defaults.py", line 249, in get_defaults_for
+    .run(as_dict=True)
+     ^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/query_builder/utils.py", line 85, in execute_query
+    result = frappe.local.db.sql(query, params, *args, **kwargs)  # nosemgrep
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 249, in sql
+    self.connect()
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 147, in connect
+    self.get_connection()
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/mariadb/mysqlclient.py", line 109, in get_connection
+    conn = self._get_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/mariadb/mysqlclient.py", line 114, in _get_connection
+    return self.create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/mariadb/mysqlclient.py", line 117, in create_connection
+    return MySQLdb.connect(**self.get_connection_settings())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/env/lib/python3.12/site-packages/MySQLdb/__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/env/lib/python3.12/site-packages/MySQLdb/connections.py", line 200, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (1045, "Access denied for user '_043458f75035292b'@'localhost' (using password: YES)")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/utils/caching.py", line 65, in wrapper
+    return _cache[func][args_key]
+           ~~~~~~~~~~~~^^^^^^^^^^
+KeyError: ((), <object object at 0x789ec6b78f80>, frozenset({('_ensure_on_bench', True)}))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/translate.py", line 174, in get_all_translations
+    return frappe.cache.hget(MERGED_TRANSLATION_KEY, lang, generator=_merge_translations)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/utils/redis_wrapper.py", line 253, in hget
+    value = generator()
+            ^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/translate.py", line 162, in _merge_translations
+    all_translations.update(get_translations_from_apps(lang))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/translate.py", line 189, in get_translations_from_apps
+    for app in apps or frappe.get_installed_apps(_ensure_on_bench=True):
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/utils/caching.py", line 71, in wrapper
+    return_val = func(*args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/__init__.py", line 916, in get_installed_apps
+    installed = orjson.loads(db.get_global("installed_apps") or "[]")
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 1144, in get_global
+    return self.get_default(key, user)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 1148, in get_default
+    d = self.get_defaults(key, parent)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 1164, in get_defaults
+    defaults = frappe.defaults.get_defaults_for(parent)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/defaults.py", line 249, in get_defaults_for
+    .run(as_dict=True)
+     ^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/query_builder/utils.py", line 85, in execute_query
+    result = frappe.local.db.sql(query, params, *args, **kwargs)  # nosemgrep
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 249, in sql
+    self.connect()
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/database.py", line 147, in connect
+    self.get_connection()
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/mariadb/mysqlclient.py", line 109, in get_connection
+    conn = self._get_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/mariadb/mysqlclient.py", line 114, in _get_connection
+    return self.create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/apps/frappe/frappe/database/mariadb/mysqlclient.py", line 117, in create_connection
+    return MySQLdb.connect(**self.get_connection_settings())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/env/lib/python3.12/site-packages/MySQLdb/__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/frappe-env/frappe-bench/env/lib/python3.12/site-packages/MySQLdb/connections.py", line 200, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (1045, "Access denied for user '_043458f75035292b'@'localhost' (using password: YES)")
+2025-12-01 06:32:17,694 ERROR frappe New Exception collected in error log
+Site: newsite.local
+Form Dict: {}
+2025-12-01 06:32:18,184 ERROR frappe New Exception collected in error log
+Site: newsite.local
+Form Dict: {}
+2025-12-01 06:32:23,032 ERROR frappe New Exception collected in error log
+Site: newsite.local
+Form Dict: {}
+2025-12-01 06:32:23,244 ERROR frappe New Exception collected in error log
+Site: newsite.local
+Form Dict: {}
+2025-12-01 06:32:37,025 ERROR frappe New Exception collected in error log
+Site: newsite.local
+Form Dict: {}
+2025-12-01 06:32:37,583 ERROR frappe New Exception collected in error log
+Site: newsite.local
+Form Dict: {}
+2025-12-01 06:32:37,594 ERROR frappe New Exception collected in error log
+Site: newsite.local
+Form Dict: {}
+2025-12-01 06:32:37,734 ERROR frappe New Exception collected in error log
+Site: newsite.local
+Form Dict: {}
+2025-12-01 06:32:38,003 ERROR frappe New Exception collected in error log
+Site: newsite.local
+Form Dict: {}
+2025-12-01 06:32:38,156 ERROR frappe New Exception collected in error log
+Site: newsite.local
+Form Dict: {}
+2025-12-01 06:32:38,333 ERROR frappe New Exception collected in error log
+Site: newsite.local
+Form Dict: {}
+2025-12-01 06:38:39,154 ERROR frappe New Exception collected in error log
+Site: newsite.local
+Form Dict: {}
+2025-12-01 06:38:39,628 ERROR frappe New Exception collected in error log
+Site: newsite.local
+Form Dict: {}
+2025-12-01 06:38:42,613 ERROR frappe New Exception collected in error log
+Site: newsite.local
+Form Dict: {}
+2025-12-01 06:38:42,910 ERROR frappe New Exception collected in error log
+Site: newsite.local
+Form Dict: {}
+2025-12-01 06:56:14,980 ERROR frappe New Exception collected in error log
+Site: newsite.local
+Form Dict: {}
+2025-12-01 06:56:15,556 ERROR frappe New Exception collected in error log
+Site: newsite.local
+Form Dict: {}
